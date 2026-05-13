@@ -2,7 +2,7 @@
 
 **Nhóm:** 10  
 **Thành viên thực hiện:**
-* **Nguyễn Đỗ Hữu Giang** - MSSV: 2415053122312
+* **Nguyễn Đỗ Hữu Giang** 
 * **Lê Doãn Đàn**
 * **Thái Trường Giang**
 
