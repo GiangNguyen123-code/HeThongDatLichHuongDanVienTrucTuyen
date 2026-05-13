@@ -1,21 +1,42 @@
-Đề tài: Xây dựng hệ thống đặt lịch Hướng dẫn viên trực tuyến
-Nhóm: 10
-Thành viên 1: Nguyễn Đỗ Hữu Giang
-Thành viên 2: Lê Doãn Đàn
-Thành viên 3: Thái Trường Giang
-1. Giới thiệu tổng quan về đề tài
-Hệ thống Đặt lịch Hướng dẫn viên trực tuyến là một nền tảng web cho phép du khách dễ dàng tìm kiếm, lựa chọn và đặt lịch với các hướng dẫn viên du lịch chuyên nghiệp. Hệ thống giải quyết bài toán thực tế trong ngành du lịch, giúp kết nối hướng dẫn viên với du khách một cách nhanh chóng, minh bạch và tiện lợi.
-Hệ thống cung cấp các tính năng chính gồm: tìm kiếm hướng dẫn viên theo địa điểm, ngôn ngữ và chuyên môn; xem hồ sơ và đánh giá; đặt lịch theo khung giờ; quản lý đơn đặt lịch và thống kê doanh thu cho Admin.
-2. Xác định vấn đề thực tế 
-Hiện nay, du khách thường phải tìm kiếm hướng dẫn viên qua kênh trung gian, mạng xã hội hoặc giới thiệu cá nhân, gây mất nhiều thời gian và thiếu tính minh bạch về giá cả, chất lượng dịch vụ. Phía hướng dẫn viên cũng không có công cụ chuyên dụng để quản lý lịch làm việc, xác nhận đơn và theo dõi thu nhập.
-Đề tài hướng đến việc số hóa quy trình kết nối du khách – hướng dẫn viên, giúp quản lý lịch hẹn, trạng thái đơn và doanh thu một cách hiệu quả.
-3. Đối tượng sử dụng chính
-Hệ thống được thiết kế hướng tới 3 nhóm người dùng mục tiêu với các phân hệ quyền hạn riêng biệt:
-•	Khách du lịch (Khách hàng): Những cá nhân hoặc nhóm khách có nhu cầu thuê HDV theo giờ/ngày. Họ cần công cụ tìm kiếm trực quan, hệ thống lọc thông minh (theo giá, ngôn ngữ, địa điểm) và kênh thanh toán an toàn.
-•	Hướng dẫn viên du lịch (Đối tác cung cấp dịch vụ): Những người có thẻ hành nghề hoặc am hiểu địa phương muốn làm việc tự do. Họ sử dụng hệ thống để tạo hồ sơ năng lực (portfolio), quản lý lịch trống, nhận yêu cầu và theo dõi doanh thu.
-•	Quản trị viên (Admin): Đội ngũ vận hành hệ thống. Họ có trách nhiệm kiểm duyệt hồ sơ HDV, quản lý các giao dịch tài chính, phát hành mã khuyến mãi và giải quyết khiếu nại để duy trì môi trường nền tảng trong sạch.
-4. Công nghệ sử dụng:
-•	ASP.NET MVC (C#)
-•	Microsoft SQL Server
-•	HTML5, CSS3, JavaScript
-•	Google Maps API & GPS Integration
+# 🗺️ Đề tài: Xây dựng hệ thống đặt lịch Hướng dẫn viên trực tuyến
+
+**Nhóm:** 10  
+**Thành viên thực hiện:**
+* **Nguyễn Đỗ Hữu Giang** - MSSV: 2415053122312
+* **Lê Doãn Đàn**
+* **Thái Trường Giang**
+
+---
+
+## 📝 1. Giới thiệu tổng quan
+> Hệ thống Đặt lịch Hướng dẫn viên trực tuyến là một nền tảng web giúp kết nối trực tiếp du khách và hướng dẫn viên chuyên nghiệp một cách nhanh chóng, minh bạch và tiện lợi.
+
+**Các tính năng cốt lõi:**
+* **Tìm kiếm thông minh:** Lọc theo địa điểm, ngôn ngữ và chuyên môn.
+* **Hồ sơ minh bạch:** Xem chi tiết Profile và các đánh giá từ khách hàng cũ.
+* **Đặt lịch linh hoạt:** Lựa chọn theo khung giờ trống của hướng dẫn viên.
+* **Quản trị toàn diện:** Thống kê doanh thu và quản lý đơn đặt cho Admin.
+
+## 🚩 2. Xác định vấn đề thực tế
+Dự án tập trung giải quyết các "điểm nghẽn" sau trong ngành du lịch:
+* **Thiếu minh bạch:** Du khách mất thời gian tìm kiếm qua trung gian với giá cả không rõ ràng.
+* **Khó quản lý:** Hướng dẫn viên thiếu công cụ chuyên dụng để theo dõi lịch trình và thu nhập.
+* **Số hóa quy trình:** Chuyển đổi cách kết nối truyền thống sang nền tảng số để quản lý trạng thái đơn hàng và doanh thu hiệu quả hơn.
+
+## 👥 3. Đối tượng sử dụng chính
+Hệ thống phân quyền rõ ràng cho 3 nhóm đối tượng:
+
+1. **Khách du lịch (Khách hàng):** * Sử dụng bộ lọc thông minh (giá, ngôn ngữ, địa điểm).
+    * Thanh toán an toàn qua các cổng trực tuyến.
+2. **Hướng dẫn viên du lịch:** * Xây dựng hồ sơ năng lực (Portfolio).
+    * Quản lý lịch trống và nhận yêu cầu trực tiếp từ khách.
+3. **Quản trị viên (Admin):** * Kiểm duyệt hồ sơ đối tác và quản lý giao dịch.
+    * Giải quyết khiếu nại và vận hành hệ thống.
+
+## 💻 4. Công nghệ sử dụng
+Dự án được xây dựng trên nền tảng công nghệ hiện đại:
+* **Backend:** ASP.NET Core MVC (C# / .NET 8).
+* **Database:** Microsoft SQL Server 2019.
+* **Frontend:** HTML5, CSS3, JavaScript (Bootstrap 5).
+* **Tương tác CSDL:** Entity Framework Core.
+* **Tích hợp:** Google Maps API & GPS Integration cho bản đồ và định vị.
