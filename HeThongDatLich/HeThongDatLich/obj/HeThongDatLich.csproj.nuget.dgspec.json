@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\HeThongDatLich.csproj": {}
+    "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\HeThongDatLich.csproj": {}
   },
   "projects": {
-    "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\HeThongDatLich.csproj": {
+    "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\HeThongDatLich.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\HeThongDatLich.csproj",
+        "projectUniqueName": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\HeThongDatLich.csproj",
         "projectName": "HeThongDatLich",
-        "projectPath": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\HeThongDatLich.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\obj\\",
+        "projectPath": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\HeThongDatLich.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -98,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.204/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
