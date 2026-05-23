@@ -1,74 +1,122 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\C#\\LyThuyet\\HeThongDatLich\\",
+  "WorkspaceRootPath": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Migrations\\20260523034333_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HeThongDatLich\\Migrations\\20260523034333_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|d:\\c#\\lythuyet\\hethongdatlich\\hethongdatlich\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|d:\\c#\\lythuyet\\hethongdatlich\\hethongdatlich\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|d:\\c#\\lythuyet\\hethongdatlich\\hethongdatlich\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\views\\kh\u00E1ch h\u00E0ng\\datlich\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\views\\kh\u00E1ch h\u00E0ng\\datlich\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|d:\\c#\\lythuyet\\hethongdatlich\\hethongdatlich\\models\\hoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\hoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\views\\kh\u00E1ch h\u00E0ng\\profile\\chitiet.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\views\\kh\u00E1ch h\u00E0ng\\profile\\chitiet.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|d:\\c#\\lythuyet\\hethongdatlich\\hethongdatlich\\models\\phuongthucthanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\phuongthucthanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\views\\kh\u00E1ch h\u00E0ng\\timkiem\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\views\\kh\u00E1ch h\u00E0ng\\timkiem\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|d:\\c#\\lythuyet\\hethongdatlich\\hethongdatlich\\models\\danhgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\danhgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\controllers\\khachhangcontrollers\\datlichcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\controllers\\khachhangcontrollers\\datlichcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|d:\\c#\\lythuyet\\hethongdatlich\\hethongdatlich\\models\\dondatlich.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\dondatlich.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\controllers\\admincontrollers\\thongkecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\controllers\\admincontrollers\\thongkecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|d:\\c#\\lythuyet\\hethongdatlich\\hethongdatlich\\models\\magiamgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\magiamgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\controllers\\khachhangcontrollers\\danhgiacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\controllers\\khachhangcontrollers\\danhgiacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|d:\\c#\\lythuyet\\hethongdatlich\\hethongdatlich\\models\\goitour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\goitour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\controllers\\hdvcontrollers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\controllers\\hdvcontrollers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|d:\\c#\\lythuyet\\hethongdatlich\\hethongdatlich\\models\\ngonngu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\ngonngu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\controllers\\khachhangcontrollers\\timkiemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\controllers\\khachhangcontrollers\\timkiemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|d:\\c#\\lythuyet\\hethongdatlich\\hethongdatlich\\models\\phuongxa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\phuongxa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|d:\\c#\\lythuyet\\hethongdatlich\\hethongdatlich\\models\\tinhthanh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\tinhthanh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|d:\\c#\\lythuyet\\hethongdatlich\\hethongdatlich\\models\\hosohdv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\hosohdv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\models\\quyen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\quyen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|d:\\c#\\lythuyet\\hethongdatlich\\hethongdatlich\\models\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\models\\phanquyen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\phanquyen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|d:\\c#\\lythuyet\\hethongdatlich\\hethongdatlich\\models\\phanquyen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\phanquyen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\models\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|d:\\c#\\lythuyet\\hethongdatlich\\hethongdatlich\\models\\quyen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02226369-60C3-4F0B-8EFC-FA9F524FA659}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\quyen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\models\\hosohdv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\hosohdv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\models\\tinhthanh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\tinhthanh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\models\\phuongxa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\phuongxa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\models\\ngonngu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\ngonngu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\models\\goitour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\goitour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\models\\magiamgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\magiamgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\models\\dondatlich.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\dondatlich.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\models\\danhgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\danhgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\models\\phuongthucthanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\phuongthucthanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\models\\hoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\models\\hoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\migrations\\20260523034333_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\migrations\\20260523034333_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -82,206 +130,356 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 13,
               "Title": "QUYEN.cs",
-              "DocumentMoniker": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\QUYEN.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\QUYEN.cs",
               "RelativeDocumentMoniker": "HeThongDatLich\\Models\\QUYEN.cs",
-              "ToolTip": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\QUYEN.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\QUYEN.cs",
               "RelativeToolTip": "HeThongDatLich\\Models\\QUYEN.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T02:12:01.112Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "PHANQUYEN.cs",
-              "DocumentMoniker": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\PHANQUYEN.cs",
-              "RelativeDocumentMoniker": "HeThongDatLich\\Models\\PHANQUYEN.cs",
-              "ToolTip": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\PHANQUYEN.cs",
-              "RelativeToolTip": "HeThongDatLich\\Models\\PHANQUYEN.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T02:13:00.915Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
+              "Title": "PHANQUYEN.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\PHANQUYEN.cs",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Models\\PHANQUYEN.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\PHANQUYEN.cs",
+              "RelativeToolTip": "HeThongDatLich\\Models\\PHANQUYEN.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-23T02:13:00.915Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "NGUOIDUNG.cs",
-              "DocumentMoniker": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\NGUOIDUNG.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\NGUOIDUNG.cs",
               "RelativeDocumentMoniker": "HeThongDatLich\\Models\\NGUOIDUNG.cs",
-              "ToolTip": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\NGUOIDUNG.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\NGUOIDUNG.cs",
               "RelativeToolTip": "HeThongDatLich\\Models\\NGUOIDUNG.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAkwCQAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T02:07:42.161Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "HOSOHDV.cs",
-              "DocumentMoniker": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\HOSOHDV.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\HOSOHDV.cs",
               "RelativeDocumentMoniker": "HeThongDatLich\\Models\\HOSOHDV.cs",
-              "ToolTip": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\HOSOHDV.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\HOSOHDV.cs",
               "RelativeToolTip": "HeThongDatLich\\Models\\HOSOHDV.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAswCEAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T02:08:07.538Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "TINHTHANH.cs",
-              "DocumentMoniker": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\TINHTHANH.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\TINHTHANH.cs",
               "RelativeDocumentMoniker": "HeThongDatLich\\Models\\TINHTHANH.cs",
-              "ToolTip": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\TINHTHANH.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\TINHTHANH.cs",
               "RelativeToolTip": "HeThongDatLich\\Models\\TINHTHANH.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T02:13:16.042Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 18,
               "Title": "PHUONGXA.cs",
-              "DocumentMoniker": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\PHUONGXA.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\PHUONGXA.cs",
               "RelativeDocumentMoniker": "HeThongDatLich\\Models\\PHUONGXA.cs",
-              "ToolTip": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\PHUONGXA.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\PHUONGXA.cs",
               "RelativeToolTip": "HeThongDatLich\\Models\\PHUONGXA.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T02:13:28.596Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 19,
               "Title": "NGONNGU.cs",
-              "DocumentMoniker": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\NGONNGU.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\NGONNGU.cs",
               "RelativeDocumentMoniker": "HeThongDatLich\\Models\\NGONNGU.cs",
-              "ToolTip": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\NGONNGU.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\NGONNGU.cs",
               "RelativeToolTip": "HeThongDatLich\\Models\\NGONNGU.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T02:10:42.218Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 20,
               "Title": "GOITOUR.cs",
-              "DocumentMoniker": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\GOITOUR.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\GOITOUR.cs",
               "RelativeDocumentMoniker": "HeThongDatLich\\Models\\GOITOUR.cs",
-              "ToolTip": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\GOITOUR.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\GOITOUR.cs",
               "RelativeToolTip": "HeThongDatLich\\Models\\GOITOUR.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAB4AAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T02:12:46.502Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 21,
               "Title": "MAGIAMGIA.cs",
-              "DocumentMoniker": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\MAGIAMGIA.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\MAGIAMGIA.cs",
               "RelativeDocumentMoniker": "HeThongDatLich\\Models\\MAGIAMGIA.cs",
-              "ToolTip": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\MAGIAMGIA.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\MAGIAMGIA.cs",
               "RelativeToolTip": "HeThongDatLich\\Models\\MAGIAMGIA.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T02:12:16.905Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 22,
               "Title": "DONDATLICH.cs",
-              "DocumentMoniker": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\DONDATLICH.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\DONDATLICH.cs",
               "RelativeDocumentMoniker": "HeThongDatLich\\Models\\DONDATLICH.cs",
-              "ToolTip": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\DONDATLICH.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\DONDATLICH.cs",
               "RelativeToolTip": "HeThongDatLich\\Models\\DONDATLICH.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAAYwCwAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T02:08:21.025Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 23,
               "Title": "DANHGIA.cs",
-              "DocumentMoniker": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\DANHGIA.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\DANHGIA.cs",
               "RelativeDocumentMoniker": "HeThongDatLich\\Models\\DANHGIA.cs",
-              "ToolTip": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\DANHGIA.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\DANHGIA.cs",
               "RelativeToolTip": "HeThongDatLich\\Models\\DANHGIA.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T02:09:02.4Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 24,
               "Title": "PHUONGTHUCTHANHTOAN.cs",
-              "DocumentMoniker": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\PHUONGTHUCTHANHTOAN.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\PHUONGTHUCTHANHTOAN.cs",
               "RelativeDocumentMoniker": "HeThongDatLich\\Models\\PHUONGTHUCTHANHTOAN.cs",
-              "ToolTip": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\PHUONGTHUCTHANHTOAN.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\PHUONGTHUCTHANHTOAN.cs",
               "RelativeToolTip": "HeThongDatLich\\Models\\PHUONGTHUCTHANHTOAN.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T02:12:33.48Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 25,
               "Title": "HOADON.cs",
-              "DocumentMoniker": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\HOADON.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\HOADON.cs",
               "RelativeDocumentMoniker": "HeThongDatLich\\Models\\HOADON.cs",
-              "ToolTip": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Models\\HOADON.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Models\\HOADON.cs",
               "RelativeToolTip": "HeThongDatLich\\Models\\HOADON.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T02:08:44.79Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20260523034333_InitialCreate.cs",
-              "DocumentMoniker": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Migrations\\20260523034333_InitialCreate.cs",
-              "RelativeDocumentMoniker": "HeThongDatLich\\Migrations\\20260523034333_InitialCreate.cs",
-              "ToolTip": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Migrations\\20260523034333_InitialCreate.cs",
-              "RelativeToolTip": "HeThongDatLich\\Migrations\\20260523034333_InitialCreate.cs",
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "HeThongDatLich\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABQAAAAAAAAAAAAkwDgAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-23T09:35:02.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Views\\_ViewImports.cshtml",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "HeThongDatLich\\Views\\_ViewImports.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T03:43:34.127Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-23T09:33:39.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Views\\_ViewStart.cshtml",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "HeThongDatLich\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-23T09:33:35.171Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Views\\Kh\u00E1ch h\u00E0ng\\DatLich\\Index.cshtml",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Views\\Kh\u00E1ch h\u00E0ng\\DatLich\\Index.cshtml",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Views\\Kh\u00E1ch h\u00E0ng\\DatLich\\Index.cshtml",
+              "RelativeToolTip": "HeThongDatLich\\Views\\Kh\u00E1ch h\u00E0ng\\DatLich\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-23T09:32:17.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ChiTiet.cshtml",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Views\\Kh\u00E1ch h\u00E0ng\\Profile\\ChiTiet.cshtml",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Views\\Kh\u00E1ch h\u00E0ng\\Profile\\ChiTiet.cshtml",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Views\\Kh\u00E1ch h\u00E0ng\\Profile\\ChiTiet.cshtml",
+              "RelativeToolTip": "HeThongDatLich\\Views\\Kh\u00E1ch h\u00E0ng\\Profile\\ChiTiet.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-23T09:31:30.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Views\\Kh\u00E1ch h\u00E0ng\\Timkiem\\Index.cshtml",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Views\\Kh\u00E1ch h\u00E0ng\\Timkiem\\Index.cshtml",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Views\\Kh\u00E1ch h\u00E0ng\\Timkiem\\Index.cshtml",
+              "RelativeToolTip": "HeThongDatLich\\Views\\Kh\u00E1ch h\u00E0ng\\Timkiem\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-23T09:31:03.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ProfileController.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Controllers\\HDVControllers\\ProfileController.cs",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Controllers\\HDVControllers\\ProfileController.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Controllers\\HDVControllers\\ProfileController.cs",
+              "RelativeToolTip": "HeThongDatLich\\Controllers\\HDVControllers\\ProfileController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-23T09:14:42.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TimkiemController.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Controllers\\KhachHangControllers\\TimkiemController.cs",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Controllers\\KhachHangControllers\\TimkiemController.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Controllers\\KhachHangControllers\\TimkiemController.cs",
+              "RelativeToolTip": "HeThongDatLich\\Controllers\\KhachHangControllers\\TimkiemController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-23T09:14:16.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ThongKeController.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Controllers\\AdminControllers\\ThongKeController.cs",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Controllers\\AdminControllers\\ThongKeController.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Controllers\\AdminControllers\\ThongKeController.cs",
+              "RelativeToolTip": "HeThongDatLich\\Controllers\\AdminControllers\\ThongKeController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAiwDsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-23T09:13:41.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DanhGiaController.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Controllers\\KhachHangControllers\\DanhGiaController.cs",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Controllers\\KhachHangControllers\\DanhGiaController.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Controllers\\KhachHangControllers\\DanhGiaController.cs",
+              "RelativeToolTip": "HeThongDatLich\\Controllers\\KhachHangControllers\\DanhGiaController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAqwDMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-23T09:13:20.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DatLichController.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Controllers\\KhachHangControllers\\DatLichController.cs",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Controllers\\KhachHangControllers\\DatLichController.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Controllers\\KhachHangControllers\\DatLichController.cs",
+              "RelativeToolTip": "HeThongDatLich\\Controllers\\KhachHangControllers\\DatLichController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-23T09:12:55.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Views\\Home\\Index.cshtml",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "HeThongDatLich\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-23T09:11:40.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "20260523034333_InitialCreate.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Migrations\\20260523034333_InitialCreate.cs",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Migrations\\20260523034333_InitialCreate.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Migrations\\20260523034333_InitialCreate.cs",
+              "RelativeToolTip": "HeThongDatLich\\Migrations\\20260523034333_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-23T03:43:34.127Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\appsettings.json",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\appsettings.json",
               "RelativeDocumentMoniker": "HeThongDatLich\\appsettings.json",
-              "ToolTip": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\appsettings.json",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\appsettings.json",
               "RelativeToolTip": "HeThongDatLich\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -290,33 +488,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 27,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Program.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Program.cs",
               "RelativeDocumentMoniker": "HeThongDatLich\\Program.cs",
-              "ToolTip": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Program.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Program.cs",
               "RelativeToolTip": "HeThongDatLich\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T03:12:51.361Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-23T03:12:51.361Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 28,
               "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Data\\AppDbContext.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "HeThongDatLich\\Data\\AppDbContext.cs",
-              "ToolTip": "D:\\C#\\LyThuyet\\HeThongDatLich\\HeThongDatLich\\Data\\AppDbContext.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Data\\AppDbContext.cs",
               "RelativeToolTip": "HeThongDatLich\\Data\\AppDbContext.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAuwDYAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T03:12:21.89Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+              "WhenOpened": "2026-05-23T03:12:21.89Z"
             }
           ]
         }

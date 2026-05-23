@@ -21,4 +21,14 @@
     <PackageReference Include="NuGet.Protocol" Version="7.6.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Validation\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\HDV\" />
+  </ItemGroup>
+
 </Project>
