@@ -1,0 +1,10 @@
+# Thư mục rác của Visual Studio
+.vs/
+bin/
+obj/
+
+# Các file hệ thống khác
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
