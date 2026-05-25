@@ -1,0 +1,204 @@
+﻿@model HeThongDatLich.Models.HOSOHDV
+@{
+    ViewData["Title"] = "Hồ sơ - " + Model.NguoiDung.HoTen;
+    Layout = "~/Views/Shared/_LayoutKhachHang.cshtml";
+    
+    var reviews = Model.DonDatLichs.SelectMany(d => d.DanhGias).ToList();
+    double avgRating = reviews.Any() ? Math.Round(reviews.Average(r => r.SoSao), 1) : 5.0;
+    string avatar = string.IsNullOrEmpty(Model.NguoiDung.AnhDaiDien) || Model.NguoiDung.AnhDaiDien == "Avatar_Text" ? "https://images.unsplash.com/photo-1580894742597-87bc8789db3d?w=400" : Model.NguoiDung.AnhDaiDien;
+}
+
+<div style="max-width: 1100px; margin: 30px auto; padding: 0 20px;">
+    
+    <a href="@Url.Action("Index", "KhachHangHome")" style="text-decoration:none; color:#555; font-size:14px;"><i class="fa-solid fa-arrow-left"></i> Quay lại danh sách</a>
+
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-top: 20px;">
+        
+        <div>
+            <div style="background:#fff; padding:24px; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.05); display:flex; gap:20px; align-items:center;">
+                <div style="width:120px; height:120px; border-radius:50%; overflow:hidden;">
+                    <img src="@avatar" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div>
+                    <h1 style="font-size:24px; margin-bottom:5px;">@Model.NguoiDung.HoTen</h1>
+                    <p style="color:#666; font-size:14px;"><i class="fa-solid fa-location-dot"></i> @Model.PhuongXa.TenPhuongXa, @Model.PhuongXa.TinhThanh.TenTinh</p>
+                    <div style="margin-top:10px; display:flex; gap:10px;">
+                        <span style="background:#eef2ff; color:#1557b0; padding:4px 12px; border-radius:20px; font-size:12px; font-weight:500;">@Model.NgonNgu.TenNgonNgu</span>
+                        <span style="background:#e6f9f0; color:#1a8a52; padding:4px 12px; border-radius:20px; font-size:12px; font-weight:500;">★ @avgRating (@reviews.Count Đánh giá)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background:#fff; padding:24px; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.05); margin-top:20px;">
+                <h3 style="margin-bottom:12px; border-bottom:1px solid #f0f2f8; padding-bottom:8px;">Giới thiệu</h3>
+                <p style="color:#444; line-height:1.6; font-size:14px;">@(string.IsNullOrEmpty(Model.GioiThieu) ? "Hướng dẫn viên này chưa cập nhật lời giới thiệu." : Model.GioiThieu)</p>
+                <p style="margin-top:10px; font-size:14px; font-weight:500;">Kinh nghiệm: @(Model.KinhNghiem ?? 0) Năm</p>
+            </div>
+
+            <div style="background:#fff; padding:24px; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.05); margin-top:20px;">
+                <h3 style="margin-bottom:12px; border-bottom:1px solid #f0f2f8; padding-bottom:8px;">Các gói tour cung cấp</h3>
+                @if (Model.GoiTours.Any())
+                {
+                    foreach (var tour in Model.GoiTours)
+                    {
+                        <div style="border:1px solid #e8eaf0; padding:15px; border-radius:8px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <h4 style="color:#1a1a2e; margin-bottom:4px;">@tour.TenTour</h4>
+                                <p style="font-size:12px; color:#666;">@tour.ThoiGian | @tour.MoTa</p>
+                            </div>
+                            <span style="font-weight:700; color:#1557b0;">@tour.GiaTien.ToString("N0") đ</span>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p style="font-size:13px; color:#aaa;">Chưa đăng ký gói tour cố định nào.</p>
+                }
+            </div>
+
+            <div style="background:#fff; padding:24px; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.05); margin-top:20px;">
+                <h3 style="margin-bottom:12px; border-bottom:1px solid #f0f2f8; padding-bottom:8px;">Đánh giá từ khách hàng cũ</h3>
+                @if (reviews.Any())
+                {
+                    foreach (var rev in reviews)
+                    {
+                        <div style="border-bottom:1px solid #f0f2f8; padding:12px 0;">
+                            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px;">
+                                <strong style="color:#333;">@rev.DonDatLich?.KhachHang?.HoTen</strong>
+                                <span style="color:#f5a623; font-size:12px;">@string.Concat(Enumerable.Repeat("★", rev.SoSao))</span>
+                            </div>
+                            <p style="font-size:13px; color:#555; line-height:1.5;">@rev.NoiDung</p>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p style="font-size:13px; color:#aaa;">Chưa có lượt đánh giá nào.</p>
+                }
+            </div>
+        </div>
+
+        <div>
+            <div style="background:#fff; padding:24px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08); position:sticky; top:80px;">
+                <h3 style="color:#1a1a2e; margin-bottom:4px; font-size:18px;">Đặt lịch hướng dẫn viên</h3>
+                <div style="font-size:20px; font-weight:700; color:#1557b0; margin-bottom:20px;">
+                    @Model.GiaThue.ToString("N0")đ <span style="font-size:12px; font-weight:400; color:#777;">/ ngày</span>
+                </div>
+
+                <form action="@Url.Action("TaoDonDatLich", "KhachHangDonDat")" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="MaHDV" value="@Model.MaHDV" />
+                    
+                    <div style="margin-bottom:12px;">
+                        <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Chọn ngày đi</label>
+                        <input type="date" name="NgayDat" required style="width:100%; height:40px; border:1px solid #ccc; border-radius:6px; padding:0 10px; font-family:inherit;">
+                    </div>
+
+                    <div style="margin-bottom:12px;">
+                        <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Khung giờ</label>
+                        <select name="KhungGio" style="width:100%; height:40px; border:1px solid #ccc; border-radius:6px; padding:0 10px; font-family:inherit;">
+                            <option value="Sáng (07:00 - 12:00)">Sáng (07:00 - 12:00)</option>
+                            <option value="Chiều (13:00 - 18:00)">Chiều (13:00 - 18:00)</option>
+                            <option value="Cả ngày (08:00 - 17:00)">Cả ngày (08:00 - 17:00)</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom:12px;">
+                        <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Chọn Gói Tour (Tuỳ chọn)</label>
+                        <select name="MaTour" id="selectTour" onchange="tinhToanTien()" style="width:100%; height:40px; border:1px solid #ccc; border-radius:6px; padding:0 10px; font-family:inherit;">
+                            <option value="" data-price="@Model.GiaThue">Thuê HDV theo ngày (Mặc định)</option>
+                            @foreach (var tour in Model.GoiTours)
+                            {
+                                <option value="@tour.MaTour" data-price="@tour.GiaTien">@tour.TenTour</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom:12px;">
+                        <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Ghi chú đặc biệt</label>
+                        <textarea name="GhiChu" rows="2" placeholder="Ví dụ: Cần xe đẩy, đón tại khách sạn..." style="width:100%; border:1px solid #ccc; border-radius:6px; padding:10px; font-family:inherit; font-size:13px;"></textarea>
+                    </div>
+
+                    <div style="margin-bottom:15px;">
+                        <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Mã giảm giá</label>
+                        <div style="display:flex; gap:8px;">
+                            <input type="text" id="couponCode" name="VoucherCode" placeholder="NHAPMA" style="flex:1; height:38px; border:1px solid #ccc; border-radius:6px; padding:0 10px; text-transform:uppercase;">
+                            <button type="button" onclick="checkVoucher()" style="background:#f0f2f8; border:1px solid #ccc; border-radius:6px; padding:0 15px; font-weight:600; cursor:pointer;">Áp dụng</button>
+                        </div>
+                        <small id="voucherMessage" style="display:block; margin-top:6px; font-size:12px; font-weight:500;"></small>
+                    </div>
+
+                    <div style="margin-bottom:20px;">
+                        <label style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">Thanh toán</label>
+                        <select name="MaPTTT" style="width:100%; height:40px; border:1px solid #ccc; border-radius:6px; padding:0 10px; font-family:inherit;">
+                            <option value="1">Tiền mặt (Trực tiếp cho HDV)</option>
+                            <option value="2">Chuyển khoản</option>
+                        </select>
+                    </div>
+
+                    <div style="border-top:2px dashed #e2e8f0; padding-top:15px; margin-bottom:20px; font-size:14px; color:#333;">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                            <span>Tạm tính:</span>
+                            <span id="txtGiaGoc">0đ</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; margin-bottom:8px; color:#ef4444;">
+                            <span>Khuyến mãi:</span>
+                            <span id="txtGiamGia">-0đ</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-weight:700; font-size:18px; color:#1a1a2e; margin-top:10px;">
+                            <span>Tổng thanh toán:</span>
+                            <span id="txtTongTien">0đ</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" style="width:100%; height:48px; background:#2563eb; color:#fff; border:none; border-radius:8px; font-weight:600; font-size:15px; cursor:pointer; box-shadow:0 4px 12px rgba(37,99,235,0.3); transition:0.2s;">
+                        Xác nhận đặt lịch
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let basePrice = @Model.GiaThue;
+    let discountAmount = 0;
+
+    function tinhToanTien() {
+        const select = document.getElementById("selectTour");
+        const option = select.options[select.selectedIndex];
+        let currentPrice = parseFloat(option.getAttribute("data-price")) || basePrice;
+        
+        document.getElementById("txtGiaGoc").innerText = currentPrice.toLocaleString('vi-VN') + " đ";
+        
+        let finalPrice = currentPrice - discountAmount;
+        if(finalPrice < 0) finalPrice = 0;
+        
+        document.getElementById("txtGiamGia").innerText = "-" + discountAmount.toLocaleString('vi-VN') + " đ";
+        document.getElementById("txtTongTien").innerText = finalPrice.toLocaleString('vi-VN') + " đ";
+    }
+
+    function checkVoucher() {
+        let code = document.getElementById("couponCode").value;
+        if(!code) return;
+
+        // LƯU Ý GỌI API ĐÚNG CONTROLLER: /KhachHangDonDat/KiemTraVoucher
+        fetch(`/KhachHangDonDat/KiemTraVoucher?code=${code}`)
+            .then(res => res.json())
+            .then(data => {
+                let msg = document.getElementById("voucherMessage");
+                if(data.success) {
+                    discountAmount = data.discount;
+                    msg.style.color = "#1a8a52";
+                    msg.innerText = `Áp dụng thành công! Giảm ${data.discount.toLocaleString('vi-VN')} đ`;
+                } else {
+                    discountAmount = 0;
+                    msg.style.color = "#ef4444";
+                    msg.innerText = data.message;
+                }
+                tinhToanTien();
+            });
+    }
+
+    window.onload = tinhToanTien;
+</script>
