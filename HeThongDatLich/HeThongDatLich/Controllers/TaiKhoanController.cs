@@ -78,11 +78,11 @@ namespace HeThongDatLich.Controllers
             }
             else if (userRole == "HDV")
             {
-                return RedirectToAction("Index", "Home", new { area = "HDV" });
+                return RedirectToAction("LichLamHDV", "LichLam", new { area = "HDV" });
             }
 
             // Trả về trang chủ Client đối với Khách hàng
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "KhachHangHome");
         }
 
         #endregion
