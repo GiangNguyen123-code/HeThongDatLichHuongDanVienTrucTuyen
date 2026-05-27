@@ -1,0 +1,141 @@
+﻿@model IEnumerable<HeThongDatLich.Models.DONDATLICH>
+@{
+    Layout = "~/Views/Shared/_LayoutHDV.cshtml";
+    ViewData["Title"] = "Quản lý Booking";
+}
+<style>
+    .filter-bar { background: white; border-radius: 20px; padding: 20px; margin-bottom: 25px; }
+    .booking-table th { background: #f1f5f9; }
+    .status-badge { padding: 4px 12px; border-radius: 30px; font-size: 12px; font-weight: 600; }
+    .status-pending { background: #fef3c7; color: #d97706; }
+    .status-confirmed { background: #dbeafe; color: #2563eb; }
+    .status-completed { background: #d1fae5; color: #059669; }
+    .status-cancelled { background: #fee2e2; color: #dc2626; }
+</style>
+
+<div class="filter-bar">
+    <div class="row align-items-end">
+        <div class="col-md-4">
+            <label>Lọc theo trạng thái</label>
+            <select id="filterStatus" class="form-select" onchange="window.location.href='?trangThai='+this.value+'&search=@ViewBag.Search'">
+                <option value="">Tất cả (Chờ, Xác nhận, Hủy)</option>
+                <option value="1" selected="@(Context.Request.Query["trangThai"] == "1")">Chờ xác nhận</option>
+                <option value="2" selected="@(Context.Request.Query["trangThai"] == "2")">Đã xác nhận</option>
+                <option value="3" selected="@(Context.Request.Query["trangThai"] == "3")">Hoàn thành</option>
+                <option value="4" selected="@(Context.Request.Query["trangThai"] == "4")">Đã từ chối/Hủy</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label>Tìm kiếm khách hàng</label>
+            <form method="get" class="d-flex">
+                <input type="hidden" name="trangThai" value="@Context.Request.Query["trangThai"]" />
+                <input type="text" name="search" class="form-control me-2" placeholder="Tên hoặc SĐT khách..." value="@ViewBag.Search" />
+                <button type="submit" class="btn btn-primary">Tìm</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="card border-0 shadow-sm" style="border-radius: 20px;">
+    <div class="card-body p-4">
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success">@TempData["Success"]</div>
+        }
+        
+        <table class="table booking-table align-middle">
+            <thead>
+                <tr>
+                    <th>Mã Đơn</th>
+                    <th>Khách hàng</th>
+                    <th>Ngày & Giờ</th>
+                    <th>Gói Tour</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><strong>#@item.MaDatLich</strong></td>
+                        <td>
+                            <div>@item.KhachHang?.HoTen</div>
+                            <small class="text-muted">@item.KhachHang?.SoDienThoai</small>
+                        </td>
+                        <td>
+                            <div>@item.NgayDat.ToString("dd/MM/yyyy")</div>
+                            <small class="text-muted">@item.KhungGio</small>
+                        </td>
+                        <td>@(item.GoiTour?.TenTour ?? "Thuê theo ngày")</td>
+                        <td>
+                            @if (item.TrangThai == 1)
+                            {
+                                <span class="status-badge status-pending">Chờ xác nhận</span>
+                            }
+                            else if (item.TrangThai == 2)
+                            {
+
+                                <span class="status-badge status-confirmed">Đã xác nhận</span>
+                            }
+                            else if (item.TrangThai == 3)
+                            {
+
+                                <span class="status-badge status-completed">Hoàn thành</span>
+                            }
+                            else if (item.TrangThai == 4)
+                            {
+
+                                <span class="status-badge status-cancelled">Đã hủy/Từ chối</span>
+                            }
+                        </td>
+                        <td>
+                            @if (item.TrangThai == 1)
+                            {
+                                <form method="post" action="@Url.Action("XacNhan", "DonDatLich")" style="display:inline">
+                                    <input type="hidden" name="maDatLich" value="@item.MaDatLich" />
+                                    <button class="btn btn-sm btn-success me-1">Chấp nhận</button>
+                                </form>
+                                <form method="post" action="@Url.Action("TuChoi", "DonDatLich")" style="display:inline" onsubmit="return promptLyDo(this, @item.MaDatLich)">
+                                    <input type="hidden" name="maDatLich" value="@item.MaDatLich" />
+                                    <input type="hidden" name="lyDo" id="lyDo_@item.MaDatLich" />
+                                    <button class="btn btn-sm btn-danger">Từ chối</button>
+                                </form>
+                            }
+                            else if (item.TrangThai == 2)
+                            {
+                                <form method="post" action="@Url.Action("HoanThanh", "DonDatLich")" style="display:inline" onsubmit="return confirm('Bạn có chắc chắn chuyến đi này đã hoàn tất?');">
+                                    <input type="hidden" name="maDatLich" value="@item.MaDatLich" />
+                                    <button class="btn btn-sm btn-primary">Hoàn thành chuyến đi</button>
+                                </form>
+                            }
+                            else if (item.TrangThai == 3)
+                            {
+                                <button class="btn btn-sm btn-success opacity-75" disabled><i class="fas fa-check"></i> Đã xong</button>
+                            }
+                            else
+                            {
+                                <button class="btn btn-sm btn-secondary" disabled>Đã hủy</button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-between mt-3">
+            <div>Hiển thị @Model.Count() / tổng số @ViewBag.Total yêu cầu</div>
+            <nav>@* phân trang tự thêm *@</nav>
+        </div>
+    </div>
+</div>
+
+<script>
+    function promptLyDo(form, maDatLich) {
+        var lyDo = prompt("Nhập lý do từ chối (Hoặc để trống):");
+        if (lyDo !== null) { // Nhấn Cancel sẽ trả về null
+            document.getElementById('lyDo_' + maDatLich).value = lyDo;
+            return true;
+        }
+        return false;
+    }
+</script>

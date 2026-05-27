@@ -180,7 +180,13 @@
         </div>
         <ul class="nav-list">
             <li><a href="@Url.Action("LichLamHDV", "LichLam")" class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "LichLam" ? "active" : "")"><i class="fas fa-calendar-alt"></i> <span>Lịch làm</span></a></li>
-           
+            <li><a href="@Url.Action("DanhSach", "DonDatLich")" class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "DonDatLich" ? "active" : "")"><i class="fas fa-book"></i> <span>Bookings</span></a></li>
+            <li><a href="@Url.Action("Profile", "HoSoHDV")" class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "HoSoHDV" ? "active" : "")"><i class="fas fa-user"></i> <span>My Profile</span></a></li>
+            <li>
+                <a href="@Url.Action("DanhGiaHDV", "DonDatLich")" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "DonDatLich" ? "active" : "")">
+                    <i class="fas fa-star"></i> <span>Đánh giá</span>
+                </a>
+            </li>
         </ul>
         <div class="sidebar-footer">
             <a href="#"><i class="fas fa-question-circle"></i> Help Center</a>
