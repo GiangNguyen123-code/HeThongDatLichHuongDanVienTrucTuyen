@@ -7,7 +7,7 @@ namespace HeThongDatLich.Models
     public class HOADON
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaHoaDon { get; set; }
 
         public int MaDatLich { get; set; }
@@ -21,7 +21,7 @@ namespace HeThongDatLich.Models
         public bool TrangThaiTT { get; set; }
 
         [Column(TypeName = "decimal(18, 2)")]
-        public decimal SoTienGiam { get; set; }
+        public decimal? SoTienGiam { get; set; }
 
         public int MaPTTT { get; set; }
 

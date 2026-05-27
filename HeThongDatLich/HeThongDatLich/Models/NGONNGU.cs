@@ -7,7 +7,7 @@ namespace HeThongDatLich.Models
     public class NGONNGU
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaNgonNgu { get; set; }
 
         [Required]

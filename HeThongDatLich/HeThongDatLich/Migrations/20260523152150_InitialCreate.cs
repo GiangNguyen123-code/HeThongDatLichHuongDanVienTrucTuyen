@@ -15,7 +15,8 @@ namespace HeThongDatLich.Migrations
                 name: "MaGiamGias",
                 columns: table => new
                 {
-                    MaVoucher = table.Column<int>(type: "int", nullable: false),
+                    MaVoucher = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     TenVoucher = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     PhanTramGiam = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     GiamToiDa = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -31,7 +32,8 @@ namespace HeThongDatLich.Migrations
                 name: "NgonNgus",
                 columns: table => new
                 {
-                    MaNgonNgu = table.Column<int>(type: "int", nullable: false),
+                    MaNgonNgu = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     TenNgonNgu = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
@@ -40,12 +42,31 @@ namespace HeThongDatLich.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "NguoiDungs",
+                columns: table => new
+                {
+                    MaNguoiDung = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    HoTen = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    MatKhau = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    SoDienThoai = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
+                    AnhDaiDien = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TrangThaiKhoa = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_NguoiDungs", x => x.MaNguoiDung);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PhuongThucThanhToans",
                 columns: table => new
                 {
-                    MaPTTT = table.Column<int>(type: "int", nullable: false),
+                    MaPTTT = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     TenPhuongThuc = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    GhiChu = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
+                    GhiChu = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -56,7 +77,8 @@ namespace HeThongDatLich.Migrations
                 name: "Quyens",
                 columns: table => new
                 {
-                    MaQuyen = table.Column<int>(type: "int", nullable: false),
+                    MaQuyen = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     TenQuyen = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
@@ -68,7 +90,8 @@ namespace HeThongDatLich.Migrations
                 name: "TinhThanhs",
                 columns: table => new
                 {
-                    MaTinh = table.Column<int>(type: "int", nullable: false),
+                    MaTinh = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     TenTinh = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
@@ -77,10 +100,35 @@ namespace HeThongDatLich.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PhanQuyens",
+                columns: table => new
+                {
+                    MaNguoiDung = table.Column<int>(type: "int", nullable: false),
+                    MaQuyen = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PhanQuyens", x => new { x.MaNguoiDung, x.MaQuyen });
+                    table.ForeignKey(
+                        name: "FK_PhanQuyens_NguoiDungs_MaNguoiDung",
+                        column: x => x.MaNguoiDung,
+                        principalTable: "NguoiDungs",
+                        principalColumn: "MaNguoiDung",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PhanQuyens_Quyens_MaQuyen",
+                        column: x => x.MaQuyen,
+                        principalTable: "Quyens",
+                        principalColumn: "MaQuyen",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PhuongXas",
                 columns: table => new
                 {
-                    MaPhuongXa = table.Column<int>(type: "int", nullable: false),
+                    MaPhuongXa = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     TenPhuongXa = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     MaTinh = table.Column<int>(type: "int", nullable: false)
                 },
@@ -100,10 +148,10 @@ namespace HeThongDatLich.Migrations
                 columns: table => new
                 {
                     MaHDV = table.Column<int>(type: "int", nullable: false),
-                    GioiThieu = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
-                    KinhNghiem = table.Column<int>(type: "int", nullable: false),
+                    GioiThieu = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    KinhNghiem = table.Column<int>(type: "int", nullable: true),
                     GiaThue = table.Column<decimal>(type: "decimal(12,2)", nullable: false),
-                    TrangThaiHoatDong = table.Column<int>(type: "int", nullable: false),
+                    TrangThaiHoatDong = table.Column<int>(type: "int", nullable: true),
                     MaPhuongXa = table.Column<int>(type: "int", nullable: false),
                     MaNgonNgu = table.Column<int>(type: "int", nullable: false)
                 },
@@ -117,6 +165,12 @@ namespace HeThongDatLich.Migrations
                         principalColumn: "MaNgonNgu",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
+                        name: "FK_HoSoHDVs_NguoiDungs_MaHDV",
+                        column: x => x.MaHDV,
+                        principalTable: "NguoiDungs",
+                        principalColumn: "MaNguoiDung",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_HoSoHDVs_PhuongXas_MaPhuongXa",
                         column: x => x.MaPhuongXa,
                         principalTable: "PhuongXas",
@@ -128,12 +182,13 @@ namespace HeThongDatLich.Migrations
                 name: "GoiTours",
                 columns: table => new
                 {
-                    MaTour = table.Column<int>(type: "int", nullable: false),
+                    MaTour = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     MaHDV = table.Column<int>(type: "int", nullable: false),
                     TenTour = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    MoTa = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    MoTa = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
                     GiaTien = table.Column<decimal>(type: "decimal(12,2)", nullable: false),
-                    ThoiGian = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    ThoiGian = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -147,40 +202,18 @@ namespace HeThongDatLich.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "NguoiDungs",
-                columns: table => new
-                {
-                    MaNguoiDung = table.Column<int>(type: "int", nullable: false),
-                    HoTen = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
-                    MatKhau = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
-                    SoDienThoai = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
-                    AnhDaiDien = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TrangThaiKhoa = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_NguoiDungs", x => x.MaNguoiDung);
-                    table.ForeignKey(
-                        name: "FK_NguoiDungs_HoSoHDVs_MaNguoiDung",
-                        column: x => x.MaNguoiDung,
-                        principalTable: "HoSoHDVs",
-                        principalColumn: "MaHDV",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "DonDatLichs",
                 columns: table => new
                 {
-                    MaDatLich = table.Column<int>(type: "int", nullable: false),
+                    MaDatLich = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     MaKhachHang = table.Column<int>(type: "int", nullable: false),
                     MaHDV = table.Column<int>(type: "int", nullable: false),
                     MaVoucher = table.Column<int>(type: "int", nullable: true),
                     MaTour = table.Column<int>(type: "int", nullable: true),
                     NgayDat = table.Column<DateTime>(type: "date", nullable: false),
                     KhungGio = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    GhiChu = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    GhiChu = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     TrangThai = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -211,37 +244,14 @@ namespace HeThongDatLich.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PhanQuyens",
-                columns: table => new
-                {
-                    MaNguoiDung = table.Column<int>(type: "int", nullable: false),
-                    MaQuyen = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PhanQuyens", x => new { x.MaNguoiDung, x.MaQuyen });
-                    table.ForeignKey(
-                        name: "FK_PhanQuyens_NguoiDungs_MaNguoiDung",
-                        column: x => x.MaNguoiDung,
-                        principalTable: "NguoiDungs",
-                        principalColumn: "MaNguoiDung",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PhanQuyens_Quyens_MaQuyen",
-                        column: x => x.MaQuyen,
-                        principalTable: "Quyens",
-                        principalColumn: "MaQuyen",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "DanhGias",
                 columns: table => new
                 {
-                    MaDanhGia = table.Column<int>(type: "int", nullable: false),
+                    MaDanhGia = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     MaDatLich = table.Column<int>(type: "int", nullable: false),
                     SoSao = table.Column<int>(type: "int", nullable: false),
-                    NoiDung = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    NoiDung = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -258,12 +268,13 @@ namespace HeThongDatLich.Migrations
                 name: "HoaDons",
                 columns: table => new
                 {
-                    MaHoaDon = table.Column<int>(type: "int", nullable: false),
+                    MaHoaDon = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     MaDatLich = table.Column<int>(type: "int", nullable: false),
                     TongTien = table.Column<decimal>(type: "decimal(12,2)", nullable: false),
                     NgayThanhToan = table.Column<DateTime>(type: "datetime2(7)", nullable: true),
                     TrangThaiTT = table.Column<bool>(type: "bit", nullable: false),
-                    SoTienGiam = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    SoTienGiam = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     MaPTTT = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -373,13 +384,13 @@ namespace HeThongDatLich.Migrations
                 name: "MaGiamGias");
 
             migrationBuilder.DropTable(
-                name: "NguoiDungs");
-
-            migrationBuilder.DropTable(
                 name: "HoSoHDVs");
 
             migrationBuilder.DropTable(
                 name: "NgonNgus");
+
+            migrationBuilder.DropTable(
+                name: "NguoiDungs");
 
             migrationBuilder.DropTable(
                 name: "PhuongXas");

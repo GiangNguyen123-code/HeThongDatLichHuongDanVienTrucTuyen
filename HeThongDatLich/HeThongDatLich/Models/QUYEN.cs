@@ -7,7 +7,7 @@ namespace HeThongDatLich.Models
     public class QUYEN
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaQuyen { get; set; }
 
         [Required]

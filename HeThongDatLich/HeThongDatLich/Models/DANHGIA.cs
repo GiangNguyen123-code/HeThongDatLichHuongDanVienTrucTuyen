@@ -7,12 +7,12 @@ namespace HeThongDatLich.Models
     public class DANHGIA
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaDanhGia { get; set; }
 
         public int MaDatLich { get; set; }
         public int SoSao { get; set; }
-        public string NoiDung { get; set; }
+        public string? NoiDung { get; set; }
 
         [ForeignKey(nameof(MaDatLich))]
         public virtual DONDATLICH DonDatLich { get; set; }

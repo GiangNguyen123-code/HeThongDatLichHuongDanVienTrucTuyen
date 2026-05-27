@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -22,13 +22,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\AdminControllers\" />
+    <Folder Include="Controllers\KhachHangControllers\" />
+    <Folder Include="Enums\" />
     <Folder Include="Extensions\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Enums\" />
-    <Folder Include="Validation\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="Views\Admin\" />
-    <Folder Include="Views\HDV\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="Vadilation\" />
+    <Folder Include="Views\DonDatLich\" />
   </ItemGroup>
 
 </Project>

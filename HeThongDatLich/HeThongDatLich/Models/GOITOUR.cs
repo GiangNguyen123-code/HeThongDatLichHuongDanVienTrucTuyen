@@ -7,7 +7,7 @@ namespace HeThongDatLich.Models
     public class GOITOUR
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaTour { get; set; }
 
         public int MaHDV { get; set; }
@@ -17,13 +17,13 @@ namespace HeThongDatLich.Models
         public string TenTour { get; set; }
 
         [StringLength(1000)]
-        public string MoTa { get; set; }
+        public string? MoTa { get; set; }
 
         [Column(TypeName = "decimal(12, 2)")]
         public decimal GiaTien { get; set; }
 
         [StringLength(50)]
-        public string ThoiGian { get; set; }
+        public string? ThoiGian { get; set; }
 
         [ForeignKey(nameof(MaHDV))]
         public virtual HOSOHDV HDV { get; set; }

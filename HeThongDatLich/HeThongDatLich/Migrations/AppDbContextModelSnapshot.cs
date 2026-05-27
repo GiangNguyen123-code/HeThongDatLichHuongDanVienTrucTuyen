@@ -25,13 +25,15 @@ namespace HeThongDatLich.Migrations
             modelBuilder.Entity("HeThongDatLich.Models.DANHGIA", b =>
                 {
                     b.Property<int>("MaDanhGia")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaDanhGia"));
 
                     b.Property<int>("MaDatLich")
                         .HasColumnType("int");
 
                     b.Property<string>("NoiDung")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SoSao")
@@ -47,10 +49,12 @@ namespace HeThongDatLich.Migrations
             modelBuilder.Entity("HeThongDatLich.Models.DONDATLICH", b =>
                 {
                     b.Property<int>("MaDatLich")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaDatLich"));
+
                     b.Property<string>("GhiChu")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
@@ -93,7 +97,10 @@ namespace HeThongDatLich.Migrations
             modelBuilder.Entity("HeThongDatLich.Models.GOITOUR", b =>
                 {
                     b.Property<int>("MaTour")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaTour"));
 
                     b.Property<decimal>("GiaTien")
                         .HasColumnType("decimal(12, 2)");
@@ -102,7 +109,6 @@ namespace HeThongDatLich.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("MoTa")
-                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
 
@@ -112,7 +118,6 @@ namespace HeThongDatLich.Migrations
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("ThoiGian")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -126,7 +131,10 @@ namespace HeThongDatLich.Migrations
             modelBuilder.Entity("HeThongDatLich.Models.HOADON", b =>
                 {
                     b.Property<int>("MaHoaDon")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaHoaDon"));
 
                     b.Property<int>("MaDatLich")
                         .HasColumnType("int");
@@ -137,7 +145,7 @@ namespace HeThongDatLich.Migrations
                     b.Property<DateTime?>("NgayThanhToan")
                         .HasColumnType("datetime2(7)");
 
-                    b.Property<decimal>("SoTienGiam")
+                    b.Property<decimal?>("SoTienGiam")
                         .HasColumnType("decimal(18, 2)");
 
                     b.Property<decimal>("TongTien")
@@ -159,17 +167,17 @@ namespace HeThongDatLich.Migrations
             modelBuilder.Entity("HeThongDatLich.Models.HOSOHDV", b =>
                 {
                     b.Property<int>("MaHDV")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<decimal>("GiaThue")
                         .HasColumnType("decimal(12, 2)");
 
                     b.Property<string>("GioiThieu")
-                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
 
-                    b.Property<int>("KinhNghiem")
+                    b.Property<int?>("KinhNghiem")
                         .HasColumnType("int");
 
                     b.Property<int>("MaNgonNgu")
@@ -178,7 +186,7 @@ namespace HeThongDatLich.Migrations
                     b.Property<int>("MaPhuongXa")
                         .HasColumnType("int");
 
-                    b.Property<int>("TrangThaiHoatDong")
+                    b.Property<int?>("TrangThaiHoatDong")
                         .HasColumnType("int");
 
                     b.HasKey("MaHDV");
@@ -193,7 +201,10 @@ namespace HeThongDatLich.Migrations
             modelBuilder.Entity("HeThongDatLich.Models.MAGIAMGIA", b =>
                 {
                     b.Property<int>("MaVoucher")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaVoucher"));
 
                     b.Property<decimal>("GiamToiDa")
                         .HasColumnType("decimal(18, 2)");
@@ -220,7 +231,10 @@ namespace HeThongDatLich.Migrations
             modelBuilder.Entity("HeThongDatLich.Models.NGONNGU", b =>
                 {
                     b.Property<int>("MaNgonNgu")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaNgonNgu"));
 
                     b.Property<string>("TenNgonNgu")
                         .IsRequired()
@@ -235,10 +249,12 @@ namespace HeThongDatLich.Migrations
             modelBuilder.Entity("HeThongDatLich.Models.NGUOIDUNG", b =>
                 {
                     b.Property<int>("MaNguoiDung")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaNguoiDung"));
+
                     b.Property<string>("AnhDaiDien")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -257,11 +273,10 @@ namespace HeThongDatLich.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("SoDienThoai")
-                        .IsRequired()
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
-                    b.Property<bool>("TrangThaiKhoa")
+                    b.Property<bool?>("TrangThaiKhoa")
                         .HasColumnType("bit");
 
                     b.HasKey("MaNguoiDung");
@@ -287,10 +302,12 @@ namespace HeThongDatLich.Migrations
             modelBuilder.Entity("HeThongDatLich.Models.PHUONGTHUCTHANHTOAN", b =>
                 {
                     b.Property<int>("MaPTTT")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaPTTT"));
+
                     b.Property<string>("GhiChu")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -307,7 +324,10 @@ namespace HeThongDatLich.Migrations
             modelBuilder.Entity("HeThongDatLich.Models.PHUONGXA", b =>
                 {
                     b.Property<int>("MaPhuongXa")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaPhuongXa"));
 
                     b.Property<int>("MaTinh")
                         .HasColumnType("int");
@@ -327,7 +347,10 @@ namespace HeThongDatLich.Migrations
             modelBuilder.Entity("HeThongDatLich.Models.QUYEN", b =>
                 {
                     b.Property<int>("MaQuyen")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaQuyen"));
 
                     b.Property<string>("TenQuyen")
                         .IsRequired()
@@ -342,7 +365,10 @@ namespace HeThongDatLich.Migrations
             modelBuilder.Entity("HeThongDatLich.Models.TINHTHANH", b =>
                 {
                     b.Property<int>("MaTinh")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaTinh"));
 
                     b.Property<string>("TenTinh")
                         .IsRequired()
@@ -428,6 +454,12 @@ namespace HeThongDatLich.Migrations
 
             modelBuilder.Entity("HeThongDatLich.Models.HOSOHDV", b =>
                 {
+                    b.HasOne("HeThongDatLich.Models.NGUOIDUNG", "NguoiDung")
+                        .WithOne("HDV")
+                        .HasForeignKey("HeThongDatLich.Models.HOSOHDV", "MaHDV")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("HeThongDatLich.Models.NGONNGU", "NgonNgu")
                         .WithMany("HDVs")
                         .HasForeignKey("MaNgonNgu")
@@ -442,18 +474,9 @@ namespace HeThongDatLich.Migrations
 
                     b.Navigation("NgonNgu");
 
+                    b.Navigation("NguoiDung");
+
                     b.Navigation("PhuongXa");
-                });
-
-            modelBuilder.Entity("HeThongDatLich.Models.NGUOIDUNG", b =>
-                {
-                    b.HasOne("HeThongDatLich.Models.HOSOHDV", "HDV")
-                        .WithOne("NguoiDung")
-                        .HasForeignKey("HeThongDatLich.Models.NGUOIDUNG", "MaNguoiDung")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("HDV");
                 });
 
             modelBuilder.Entity("HeThongDatLich.Models.PHANQUYEN", b =>
@@ -490,8 +513,7 @@ namespace HeThongDatLich.Migrations
                 {
                     b.Navigation("DanhGias");
 
-                    b.Navigation("HoaDon")
-                        .IsRequired();
+                    b.Navigation("HoaDon");
                 });
 
             modelBuilder.Entity("HeThongDatLich.Models.GOITOUR", b =>
@@ -504,9 +526,6 @@ namespace HeThongDatLich.Migrations
                     b.Navigation("DonDatLichs");
 
                     b.Navigation("GoiTours");
-
-                    b.Navigation("NguoiDung")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("HeThongDatLich.Models.MAGIAMGIA", b =>
@@ -522,6 +541,8 @@ namespace HeThongDatLich.Migrations
             modelBuilder.Entity("HeThongDatLich.Models.NGUOIDUNG", b =>
                 {
                     b.Navigation("DonDatLichs");
+
+                    b.Navigation("HDV");
 
                     b.Navigation("PhanQuyens");
                 });

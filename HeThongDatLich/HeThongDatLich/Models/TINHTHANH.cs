@@ -7,7 +7,7 @@ namespace HeThongDatLich.Models
     public class TINHTHANH
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)] 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
         public int MaTinh { get; set; }
 
         [Required]

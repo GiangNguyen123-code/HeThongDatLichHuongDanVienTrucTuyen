@@ -39,7 +39,7 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<NGUOIDUNG>()
             .HasOne(n => n.HDV)
             .WithOne(h => h.NguoiDung)
-            .HasForeignKey<NGUOIDUNG>(n => n.MaNguoiDung)
+            .HasForeignKey<HOSOHDV>(h => h.MaHDV)
             .OnDelete(DeleteBehavior.Restrict);
 
         // 4. Bật chế độ Restrict cho các mối quan hệ có khả năng gây lỗi lặp Cascade (Multiple Cascade Paths)

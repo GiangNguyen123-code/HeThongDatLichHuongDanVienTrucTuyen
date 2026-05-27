@@ -7,18 +7,18 @@ namespace HeThongDatLich.Models
     public class HOSOHDV
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaHDV { get; set; }
 
         [StringLength(1000)]
-        public string GioiThieu { get; set; }
+        public string ?GioiThieu { get; set; }
 
-        public int KinhNghiem { get; set; }
+        public int ?KinhNghiem { get; set; }
 
         [Column(TypeName = "decimal(12, 2)")]
         public decimal GiaThue { get; set; }
 
-        public int TrangThaiHoatDong { get; set; }
+        public int ?TrangThaiHoatDong { get; set; }
 
         public int MaPhuongXa { get; set; }
         public int MaNgonNgu { get; set; }

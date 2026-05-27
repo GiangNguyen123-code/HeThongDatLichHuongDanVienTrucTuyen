@@ -10,7 +10,21 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 // Add services to the container.
+// Thêm dịch vụ lưu cache bộ nhớ (bắt buộc phải có để chạy Session)
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Session tự hủy sau 30 phút không hoạt động
+
+    // Thêm .Cookie vào trước HttpOnly và IsEssential để trỏ đúng cấu trúc đối tượng
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
@@ -24,6 +38,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+
+app.UseSession(); 
 
 app.UseAuthorization();
 

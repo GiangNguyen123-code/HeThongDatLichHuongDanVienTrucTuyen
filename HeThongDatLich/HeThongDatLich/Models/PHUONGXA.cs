@@ -7,7 +7,7 @@ namespace HeThongDatLich.Models
     public class PHUONGXA
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaPhuongXa { get; set; }
 
         [Required]

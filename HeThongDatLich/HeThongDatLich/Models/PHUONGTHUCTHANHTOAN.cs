@@ -7,7 +7,7 @@ namespace HeThongDatLich.Models
     public class PHUONGTHUCTHANHTOAN
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaPTTT { get; set; }
 
         [Required]
@@ -15,7 +15,7 @@ namespace HeThongDatLich.Models
         public string TenPhuongThuc { get; set; }
 
         [StringLength(200)]
-        public string GhiChu { get; set; }
+        public string? GhiChu { get; set; }
 
         public virtual ICollection<HOADON> HoaDons { get; set; } = new List<HOADON>();
     }

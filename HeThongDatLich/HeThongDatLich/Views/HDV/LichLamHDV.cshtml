@@ -1,0 +1,286 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutHDV.cshtml";
+    ViewData["Title"] = "Lịch làm việc";
+    var bookingsMoi = ViewBag.BookingsMoi as List<HeThongDatLich.Models.DONDATLICH>;
+    var lichHomNay = ViewBag.LichHomNay as List<HeThongDatLich.Models.DONDATLICH>;
+
+    // Xử lý dữ liệu hiển thị Header (Đã fix lỗi RuntimeBinderException)
+    string tenHDV = "bạn";
+    if (ViewBag.HoTen != null)
+    {
+        var arr = ViewBag.HoTen.ToString().Split(' ');
+        tenHDV = arr[arr.Length - 1];
+    }
+    
+    int soLichHomNay = lichHomNay != null ? lichHomNay.Count : 0;
+    string thuNhapStr = ViewBag.ThuNhapThang >= 1000000 ? (ViewBag.ThuNhapThang / 1000000.0).ToString("0.##") + "M" : ViewBag.ThuNhapThang.ToString("N0");
+}
+
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+
+<style>
+    /* Tổng quan */
+    body { background-color: #f8fafc; }
+    
+    /* Thẻ Thống kê (Stat Cards) */
+    .stat-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        border: 1px solid #f0f2f8;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+    .stat-card .icon-box {
+        width: 40px; height: 40px;
+        border-radius: 10px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 18px;
+    }
+    .stat-number { font-size: 32px; font-weight: 700; color: #0f172a; margin-top: 15px; }
+    
+    /* Custom FullCalendar UI giống Mockup */
+    .fc-theme-standard td, .fc-theme-standard th { border-color: #f1f5f9; }
+    .fc-theme-standard .fc-scrollgrid { border: none; }
+    .fc-daygrid-day-number { font-size: 14px; font-weight: 500; color: #475569; padding: 8px !important; }
+    .fc-col-header-cell-cushion { font-weight: 600; color: #64748b; font-size: 14px; padding: 12px 0 !important; }
+    .fc-day-today { background-color: #f8fafc !important; border-left: 2px solid #1d4ed8 !important; }
+    .fc-h-event {
+        background-color: #0f2b3d;
+        border: none;
+        border-radius: 6px;
+        padding: 2px 6px;
+        font-size: 11px;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+    .fc .fc-toolbar-title { font-size: 20px; font-weight: 700; color: #0f172a; }
+    .fc .fc-button-primary {
+        background-color: #fff;
+        border: 1px solid #e2e8f0;
+        color: #0f172a;
+        text-transform: capitalize;
+        border-radius: 8px;
+        box-shadow: none;
+    }
+    .fc .fc-button-primary:not(:disabled):active, .fc .fc-button-primary:not(:disabled).fc-button-active {
+        background-color: #f1f5f9;
+        color: #0f172a;
+        border-color: #e2e8f0;
+        box-shadow: none;
+    }
+
+    /* Thẻ Booking Mới */
+    .booking-list-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        border: 1px solid #f0f2f8;
+        margin-bottom: 20px;
+    }
+    .booking-item {
+        border-bottom: 1px solid #f1f5f9;
+        padding: 15px 0;
+    }
+    .booking-item:last-child { border-bottom: none; padding-bottom: 0; }
+    
+    /* Thẻ Chuyến đi tiếp theo */
+    .next-trip-card {
+        background: #0f2b3d;
+        border-radius: 16px;
+        padding: 24px;
+        color: white;
+        box-shadow: 0 10px 25px rgba(15, 43, 61, 0.2);
+    }
+</style>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="fw-bold mb-1" style="color: #0f172a; font-size: 28px;">Chào buổi sáng, @tenHDV!</h2>
+        <p class="text-muted" style="font-size: 15px;">Hôm nay bạn có @soLichHomNay lịch trình cần thực hiện.</p>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-md-4">
+        <div class="stat-card">
+            <div class="d-flex justify-content-between align-items-start">
+                <div class="icon-box" style="background: #eff6ff; color: #3b82f6;">
+                    <i class="fa-regular fa-calendar-check"></i>
+                </div>
+                <span class="badge bg-light text-primary fw-medium px-2 py-1">+2 so với hôm qua</span>
+            </div>
+            <div>
+                <div class="text-muted text-uppercase mt-4" style="font-size: 12px; font-weight: 600; letter-spacing: 0.5px;">Số lịch hôm nay</div>
+                <div class="stat-number">@soLichHomNay.ToString("D2")</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="stat-card">
+            <div class="d-flex justify-content-between align-items-start">
+                <div class="icon-box" style="background: #fdf2f8; color: #ec4899;">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+                <span class="badge bg-light text-success fw-medium px-2 py-1">@(ViewBag.PhanTramTang >= 0 ? "+" : "")@Math.Round((double)ViewBag.PhanTramTang, 1)%</span>
+            </div>
+            <div>
+                <div class="text-muted text-uppercase mt-4" style="font-size: 12px; font-weight: 600; letter-spacing: 0.5px;">Thu nhập tháng này</div>
+                <div class="stat-number">@thuNhapStr <span class="fs-6 text-muted fw-normal">VND</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="stat-card">
+            <div class="d-flex justify-content-between align-items-start">
+                <div class="icon-box" style="background: #f0fdf4; color: #10b981;">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <span class="text-muted" style="font-size: 13px;">@ViewBag.SoDanhGia đánh giá</span>
+            </div>
+            <div>
+                <div class="text-muted text-uppercase mt-4" style="font-size: 12px; font-weight: 600; letter-spacing: 0.5px;">Đánh giá trung bình</div>
+                <div class="stat-number">@ViewBag.AvgRating</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-8">
+        <div class="card border-0 shadow-sm p-4" style="border-radius: 16px;">
+            <div id="calendar"></div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        
+        <div class="booking-list-card">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h6 class="fw-bold m-0" style="font-size: 14px; text-transform: uppercase;">Booking mới (@(bookingsMoi?.Count ?? 0))</h6>
+                <a href="@Url.Action("DanhSach", "DonDatLich", new { trangThai = 1 })" class="text-primary text-decoration-none" style="font-size: 13px;">Xem tất cả</a>
+            </div>
+
+            @if (bookingsMoi != null && bookingsMoi.Any())
+            {
+                foreach (var item in bookingsMoi.Take(3))
+                {
+                    <div class="booking-item">
+                        <div class="d-flex gap-3 mb-3">
+                            <img src="https://ui-avatars.com/api/?name=@Uri.EscapeDataString(item.KhachHang?.HoTen ?? "K")&background=random" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
+                            <div>
+                                <div class="fw-bold" style="font-size: 15px; color: #0f172a;">@item.KhachHang?.HoTen</div>
+                                <div class="text-muted" style="font-size: 13px;">@(item.GoiTour?.TenTour ?? "Thuê tự do")</div>
+                                <div class="text-muted mt-1" style="font-size: 12px;">
+                                    <i class="fa-regular fa-calendar-alt me-1"></i> @item.NgayDat.ToString("dd/MM/yyyy") &nbsp;•&nbsp; <i class="fa-regular fa-clock me-1"></i> @item.KhungGio
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <form method="post" action="@Url.Action("XacNhan", "DonDatLich")" class="flex-grow-1">
+                                <input type="hidden" name="maDatLich" value="@item.MaDatLich" />
+                                <button class="btn w-100" style="background: #1d4ed8; color: white; font-weight: 500; font-size: 13px; border-radius: 6px;">Chấp nhận</button>
+                            </form>
+                            <form method="post" action="@Url.Action("TuChoi", "DonDatLich")" class="flex-grow-1" onsubmit="return promptLyDo(this, @item.MaDatLich)">
+                                <input type="hidden" name="maDatLich" value="@item.MaDatLich" />
+                                <input type="hidden" name="lyDo" id="lyDo_@item.MaDatLich" />
+                                <button class="btn w-100 bg-white" style="border: 1px solid #cbd5e1; color: #475569; font-weight: 500; font-size: 13px; border-radius: 6px;">Từ chối</button>
+                            </form>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="text-center text-muted py-4" style="font-size: 14px;">Không có yêu cầu booking mới.</div>
+            }
+        </div>
+
+        <div class="next-trip-card">
+            <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 8px;">Chuyến đi tiếp theo</div>
+            @if (lichHomNay != null && lichHomNay.Any())
+            {
+                var nextTrip = lichHomNay.First();
+                <h4 class="fw-bold text-white mb-3" style="line-height: 1.4;">@(nextTrip.GoiTour?.TenTour ?? "Thuê HDV tự do")</h4>
+                <div class="d-flex align-items-center gap-3 mb-4" style="font-size: 14px; color: #cbd5e1;">
+                    <span><i class="fa-regular fa-clock me-1"></i> @nextTrip.KhungGio</span>
+                    <span><i class="fa-regular fa-user me-1"></i> Khách: @nextTrip.KhachHang?.HoTen</span>
+                </div>
+                <a href="@Url.Action("DanhSach", "DonDatLich", new { search = nextTrip.KhachHang?.HoTen })" class="btn btn-light text-dark fw-bold w-100" style="border-radius: 8px; font-size: 14px; padding: 10px;">Bắt đầu chuyến đi</a>
+            }
+            else
+            {
+                <h5 class="fw-bold text-white mb-3 mt-2">Hôm nay bạn được nghỉ ngơi!</h5>
+                <p style="font-size: 13px; color: #94a3b8;">Chưa có lịch trình nào được chốt cho ngày hôm nay.</p>
+            }
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function promptLyDo(form, maDatLich) {
+        var lyDo = prompt("Nhập lý do từ chối (Hoặc để trống):");
+        if (lyDo !== null) {
+            document.getElementById('lyDo_' + maDatLich).value = lyDo;
+            return true;
+        }
+        return false;
+    }
+
+   // Khởi tạo FullCalendar giống Mockup
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale: 'vi',
+            height: 'auto',
+            headerToolbar: {
+                left: 'title prev,next',
+                center: '',
+                right: 'dayGridMonth,timeGridWeek'
+            },
+            buttonText: {
+                month: 'Tháng',
+                week: 'Tuần'
+            },
+            events: function(fetchInfo, successCallback, failureCallback) {
+                // 1. Cắt lấy đúng phần ngày (YYYY-MM-DD) để C# hiểu được không bị lỗi parse
+                var startDate = fetchInfo.startStr.split('T')[0];
+                var endDate = fetchInfo.endStr.split('T')[0];
+                
+                // 2. Dùng @Url.Action để Razor tự động gen đúng đường dẫn (tự nhận diện Area HDV)
+                var apiUrl = '@Url.Action("GetEvents", "LichLam")' + '?start=' + startDate + '&end=' + endDate;
+
+                fetch(apiUrl)
+                    .then(response => {
+                        if (!response.ok) throw new Error("Lỗi mạng HTTP: " + response.status);
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log("Dữ liệu lịch trả về:", data); // Log ra F12 để kiểm tra
+                        var events = data.map(event => ({
+                            id: event.id || event.Id,
+                            title: event.title || event.Title,
+                            start: event.start || event.Start,
+                            description: event.description || event.Description,
+                            extendedProps: { khungGio: event.khungGio || event.KhungGio }
+                        }));
+                        successCallback(events);
+                    })
+                    .catch(error => {
+                        console.error('Lỗi tải lịch:', error);
+                        failureCallback(error);
+                    });
+            }
+        });
+        calendar.render();
+    });
+</script>

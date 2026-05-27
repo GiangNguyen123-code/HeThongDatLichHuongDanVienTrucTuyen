@@ -602,9 +602,26 @@
     }
 </style>
 
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    // Lấy tên người dùng và vai trò từ Session sau khi họ đăng nhập thành công
+    var userName = HttpContextAccessor.HttpContext.Session.GetString("UserName");
+    var userRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole");
+    
+    string firstLetter = "U";
+    if (!string.IsNullOrEmpty(userName))
+    {
+        // Lấy chữ cái đầu tiên của từ cuối cùng trong tên để làm avatar chữ
+        var words = userName.Trim().Split(' ');
+        firstLetter = words[words.Length - 1].Substring(0, 1).ToUpper();
+    }
+}
+
 <!-- ═══════════════ NAVBAR ═══════════════ -->
 <nav class="bt-nav">
-    <a class="brand" href="#">BookingTravel</a>
+    <a class="brand" asp-action="Index" asp-controller="Home">BookingTravel</a>
     <ul class="nav-links">
         <li><a href="#" class="active">Home</a></li>
         <li><a href="#">Quản lý lịch</a></li>
@@ -619,8 +636,31 @@
         </div>
         <span class="currency">VN/USD</span>
         <div class="lang-btn"><i class="fa fa-globe"></i></div>
-        <button class="btn-signin">Sign In</button>
-        <div class="btn-avatar"><i class="fa fa-user"></i></div>
+
+        @if (string.IsNullOrEmpty(userName))
+        {
+            <!-- CHƯA ĐĂNG NHẬP: Hiển thị nút Sign In trỏ sang TaiKhoan/DangNhapTK -->
+            <a asp-action="DangNhapTK" asp-controller="TaiKhoan" class="btn-signin" style="text-decoration: none; text-align: center; display: block;">Sign In</a>
+            <div class="btn-avatar"><i class="fa fa-user"></i></div>
+        }
+        else
+        {
+            <!-- ĐÃ ĐĂNG NHẬP: Hiển thị Avatar Chữ có link đến dashboard HDV -->
+            <div class="user-logged-in" style="display: flex; align-items: center; gap: 12px;">
+                <!-- Avatar có link đến trang Lịch làm nếu là HDV, nếu không thì về # -->
+                <a href="@(userRole == "HDV" ? Url.Action("LichLamHDV", "LichLam") : "#")"
+                   style="text-decoration: none;">
+                    <div class="btn-avatar" style="background: linear-gradient(135deg, #2563eb, #1557b0); color: #fff; font-weight: 600; text-transform: uppercase; border: none;">
+                        @firstLetter
+                    </div>
+                </a>
+                <span style="font-size: 13px; font-weight: 500; color: #333;">Hi, @userName</span>
+                <!-- Nút đăng xuất -->
+                <a asp-action="DangXuat" asp-controller="TaiKhoan" title="Đăng xuất" style="color: #ef4444; font-size: 14px; margin-left: 4px;">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </a>
+            </div>
+        }
     </div>
 </nav>
 

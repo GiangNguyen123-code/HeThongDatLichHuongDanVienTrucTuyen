@@ -7,7 +7,7 @@ namespace HeThongDatLich.Models
     public class DONDATLICH
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaDatLich { get; set; }
 
         public int MaKhachHang { get; set; }
@@ -22,8 +22,9 @@ namespace HeThongDatLich.Models
         [StringLength(50)]
         public string KhungGio { get; set; }
 
+        // Sửa ở đây: Cho phép ghi chú trống
         [StringLength(500)]
-        public string GhiChu { get; set; }
+        public string? GhiChu { get; set; }
 
         public int TrangThai { get; set; }
 
@@ -39,8 +40,7 @@ namespace HeThongDatLich.Models
         [ForeignKey(nameof(MaTour))]
         public virtual GOITOUR GoiTour { get; set; }
 
-        // Khóa ngoại nghịch đảo 1-1 trỏ tới HoaDon dựa theo mối quan hệ FK trong SQL của bạn
-        public virtual HOADON HoaDon { get; set; }
+        public virtual HOADON? HoaDon { get; set; } // Đơn đặt có thể chưa có hóa đơn ngay lúc đầu
 
         public virtual ICollection<DANHGIA> DanhGias { get; set; } = new List<DANHGIA>();
     }

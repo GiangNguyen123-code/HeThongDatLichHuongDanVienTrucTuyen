@@ -7,7 +7,7 @@ namespace HeThongDatLich.Models
     public class MAGIAMGIA
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaVoucher { get; set; }
 
         [Required]
