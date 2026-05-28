@@ -2,52 +2,91 @@
 @{
     Layout = "~/Views/Shared/_LayoutHDV.cshtml";
     ViewData["Title"] = "Hồ sơ của tôi";
-    var fullName = Model.NguoiDung?.HoTen ?? "Nguyễn Văn A";
+    var fullName = Model.NguoiDung?.HoTen ?? "Chưa cập nhật";
     var firstLetter = fullName.Length > 0 ? fullName[0].ToString().ToUpper() : "H";
 }
-<div class="profile-container">
-    <div class="row">
-        <div class="col-md-4 text-center">
-            <div class="card p-4 mb-3">
-                <div class="display-1 bg-light rounded-circle mx-auto mb-3" style="width: 120px; height: 120px; line-height: 120px;">@firstLetter</div>
-                <h3>@fullName</h3>
-                <p class="text-muted">Hướng dẫn viên Chuyên nghiệp</p>
-                <p><i class="fas fa-map-marker-alt"></i> @(Model.PhuongXa?.TinhThanh?.TenTinh ?? "Đà Nẵng, Việt Nam")</p>
-                <div class="rating fs-5">⭐ @ViewBag.AvgRating.ToString("F1")/5.0</div>
-                <hr />
-                <div><strong>Tours Completed</strong><br />@ViewBag.ToursCompleted</div>
-                <div><strong>Total Earnings</strong><br />@ViewBag.TotalEarnings.ToString("C0")</div>
-            </div>
+
+<div class="profile-container container mt-4">
+
+    <!-- ĐOẠN CODE BỔ SUNG: HIỂN THỊ THÔNG BÁO THÀNH CÔNG -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+            <i class="fas fa-check-circle me-2"></i> @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <div class="col-md-8">
-            <div class="card p-4 mb-3">
-                <h4>Thông tin cá nhân</h4>
-                <div class="row">
-                    <div class="col-sm-6"><strong>Full Name:</strong> @Model.NguoiDung?.HoTen</div>
-                    <div class="col-sm-6"><strong>Email:</strong> @Model.NguoiDung?.Email</div>
-                    <div class="col-sm-6"><strong>Phone:</strong> @Model.NguoiDung?.SoDienThoai</div>
-                    <div class="col-sm-6"><strong>Date of Birth:</strong> 15/05/1997</div>
+    }
+    <!-- KẾT THÚC ĐOẠN CODE BỔ SUNG -->
+
+    <div class="row">
+        <!-- Cột thông tin tóm tắt & Nút Edit -->
+        <div class="col-md-4 text-center">
+            <div class="card p-4 mb-3 shadow-sm border-0">
+                <div class="display-1 bg-primary text-white rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 120px; height: 120px;">
+                    @firstLetter
+                </div>
+                <h4 class="mb-1">@fullName</h4>
+                <p class="text-muted mb-2">Hướng dẫn viên</p>
+                <p class="mb-2"><i class="fas fa-map-marker-alt text-danger"></i> @(Model.PhuongXa?.TinhThanh?.TenTinh ?? "Chưa cập nhật địa chỉ")</p>
+                <div class="rating fs-5 text-warning mb-3">
+                    ⭐ @ViewBag.AvgRating.ToString("F1")/5.0
+                </div>
+
+                <!-- Nút Chỉnh sửa Profile (Chuyển sang trang EditProfile) -->
+                <a asp-controller="HoSoHDV" asp-action="EditProfile" class="btn btn-outline-primary w-100 mb-3 rounded-pill">
+                    <i class="fas fa-edit"></i> Chỉnh sửa hồ sơ
+                </a>
+
+                <hr />
+                <div class="d-flex justify-content-between text-center">
+                    <div>
+                        <strong class="d-block fs-4">@ViewBag.ToursCompleted</strong>
+                        <span class="text-muted">Tour hoàn thành</span>
+                    </div>
+                    <div>
+                        <strong class="d-block fs-4 text-success">@ViewBag.TotalEarnings.ToString("C0")</strong>
+                        <span class="text-muted">Tổng thu nhập</span>
+                    </div>
                 </div>
             </div>
-            <div class="card p-4 mb-3">
-                <h4>Verification</h4>
-                <p><strong>Verified on:</strong> 12/01/2023</p>
-                <p><strong>First Aid Certificate:</strong> Verified on 05/03/2023</p>
+        </div>
+
+        <!-- Cột thông tin chi tiết -->
+        <div class="col-md-8">
+            <div class="card p-4 mb-3 shadow-sm border-0">
+                <h5 class="text-primary border-bottom pb-2 mb-3">Thông tin liên hệ</h5>
+                <div class="row mb-2">
+                    <div class="col-sm-4 text-muted">Họ và tên:</div>
+                    <div class="col-sm-8 fw-bold">@Model.NguoiDung?.HoTen</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-sm-4 text-muted">Email:</div>
+                    <div class="col-sm-8">@Model.NguoiDung?.Email</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-sm-4 text-muted">Số điện thoại:</div>
+                    <div class="col-sm-8">@(Model.NguoiDung?.SoDienThoai ?? "Chưa cập nhật")</div>
+                </div>
             </div>
-            <div class="card p-4 mb-3">
-                <h4>Professional Details</h4>
-                <p><strong>Specialization:</strong> @(Model.GioiThieu ?? "Food tours")</p>
-                <p><strong>Kinh nghiệm:</strong> @Model.KinhNghiem năm</p>
-            </div>
-            <div class="card p-4 mb-3">
-                <h4>Languages</h4>
-                <p>@(Model.NgonNgu?.TenNgonNgu ?? "Tiếng Việt, English")</p>
-            </div>
-            <div class="card p-4">
-                <h4>Bank Account</h4>
-                <p><strong>VIETCOMBANK</strong> **** **** **** 8888</p>
-                <p>Account holder: @fullName.ToUpper()</p>
-                <button class="btn btn-outline-primary mt-2">Change payout method</button>
+
+            <div class="card p-4 mb-3 shadow-sm border-0">
+                <h5 class="text-primary border-bottom pb-2 mb-3">Thông tin nghề nghiệp</h5>
+                <div class="row mb-2">
+                    <div class="col-sm-4 text-muted">Giới thiệu:</div>
+                    <div class="col-sm-8">@(Model.GioiThieu ?? "Chưa có bài giới thiệu")</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-sm-4 text-muted">Kinh nghiệm:</div>
+                    <div class="col-sm-8">@(Model.KinhNghiem.HasValue ? Model.KinhNghiem + " năm" : "Chưa cập nhật")</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-sm-4 text-muted">Giá thuê cơ bản:</div>
+                    <div class="col-sm-8 text-danger fw-bold">@Model.GiaThue.ToString("C0") / ngày</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-sm-4 text-muted">Ngôn ngữ:</div>
+                    <div class="col-sm-8">@(Model.NgonNgu?.TenNgonNgu ?? "Chưa cập nhật")</div>
+                </div>
             </div>
         </div>
     </div>
