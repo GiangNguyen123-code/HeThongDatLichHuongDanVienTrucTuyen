@@ -7,6 +7,10 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
+// THÊM 2 DÒNG USING NÀY ĐỂ GỌI ENUM VÀ VALIDATION
+using HeThongDatLich.Enums;
+using HeThongDatLich.Validations;
+
 namespace HeThongDatLich.Controllers.KhachHangControllers
 {
     public class KhachHangDonDatController : Controller
@@ -14,27 +18,44 @@ namespace HeThongDatLich.Controllers.KhachHangControllers
         private readonly AppDbContext _context;
         public KhachHangDonDatController(AppDbContext context) { _context = context; }
 
-        // API Chức năng 3.1.8: Kiểm tra Voucher (Không trả về View nên không cần sửa đường dẫn)
+        // =========================================================================================
+        // GHI CHÚ: Hàm này sử dụng để kiểm tra tính hợp lệ của mã giảm giá (Voucher) khi khách hàng nhập vào.
+        // LINQ sử dụng: FirstOrDefaultAsync để tìm mã giảm giá đầu tiên khớp với tên.
+        // =========================================================================================
         [HttpGet]
         public async Task<IActionResult> KiemTraVoucher(string code)
         {
-            var voucher = await _context.MaGiamGias.FirstOrDefaultAsync(v => v.TenVoucher == code.ToUpper());
-            if (voucher == null) return Json(new { success = false, message = "Mã không hợp lệ." });
-            if (voucher.NgayHetHan < DateTime.Now || voucher.SoLuong <= 0) return Json(new { success = false, message = "Mã hết hạn hoặc hết lượt." });
+            var voucher = await _context.MaGiamGias
+                .FirstOrDefaultAsync(v => v.TenVoucher == code.ToUpper());
+
+            if (voucher == null)
+                return Json(new { success = false, message = "Mã không hợp lệ." });
+
+            if (voucher.NgayHetHan < DateTime.Now || voucher.SoLuong <= 0)
+                return Json(new { success = false, message = "Mã hết hạn hoặc hết lượt." });
+
             return Json(new { success = true, discount = voucher.GiamToiDa });
         }
 
-        // Chức năng 3.1.4: Tiếp nhận đơn đặt lịch (Sau khi xử lý xong dùng Redirect, không trả về View trực tiếp)
+        // =========================================================================================
+        // GHI CHÚ: Hàm này xử lý logic tiếp nhận và tạo đơn đặt lịch mới từ khách hàng.
+        // LINQ sử dụng: AnyAsync, FindAsync, FirstOrDefaultAsync.
+        // =========================================================================================
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> TaoDonDatLich(int MaHDV, DateTime NgayDat, string KhungGio, int? MaTour, string GhiChu, string VoucherCode, int MaPTTT)
         {
             var userIdStr = HttpContext.Session.GetString("UserId");
-            if (string.IsNullOrEmpty(userIdStr)) return RedirectToAction("DangNhapTK", "TaiKhoan");
+            if (string.IsNullOrEmpty(userIdStr))
+                return RedirectToAction("DangNhapTK", "TaiKhoan");
             int maKhachHang = int.Parse(userIdStr);
 
-            // Kiểm tra bận lịch của HDV
-            bool isConflict = await _context.DonDatLichs.AnyAsync(d => d.MaHDV == MaHDV && d.NgayDat.Date == NgayDat.Date && d.TrangThai != 4);
+            // [ÁP DỤNG ENUM]: Kiểm tra HDV có bận lịch không, loại trừ trạng thái đã hủy (4)
+            bool isConflict = await _context.DonDatLichs
+                .AnyAsync(d => d.MaHDV == MaHDV &&
+                               d.NgayDat.Date == NgayDat.Date &&
+                               d.TrangThai != (int)TrangThaiDonDat.DaHuy);
+
             if (isConflict)
             {
                 TempData["ErrorMessage"] = "Hướng dẫn viên đã bận lịch vào ngày này rồi.";
@@ -57,7 +78,10 @@ namespace HeThongDatLich.Controllers.KhachHangControllers
             decimal soTienGiam = 0;
             if (!string.IsNullOrEmpty(VoucherCode))
             {
-                var voucher = await _context.MaGiamGias.FirstOrDefaultAsync(v => v.TenVoucher == VoucherCode.ToUpper() && v.SoLuong > 0 && v.NgayHetHan >= DateTime.Now);
+                var voucher = await _context.MaGiamGias
+                    .FirstOrDefaultAsync(v => v.TenVoucher == VoucherCode.ToUpper() &&
+                                              v.SoLuong > 0 &&
+                                              v.NgayHetHan >= DateTime.Now);
                 if (voucher != null)
                 {
                     maVoucherDuocApDung = voucher.MaVoucher;
@@ -67,7 +91,8 @@ namespace HeThongDatLich.Controllers.KhachHangControllers
                 }
             }
 
-            var donMoi = new DONDATLICH { MaKhachHang = maKhachHang, MaHDV = MaHDV, MaTour = MaTour, MaVoucher = maVoucherDuocApDung, NgayDat = NgayDat, KhungGio = KhungGio, GhiChu = GhiChu, TrangThai = 1 };
+            // [ÁP DỤNG ENUM]: Gán trạng thái khởi tạo là Chờ xác nhận (1)
+            var donMoi = new DONDATLICH { MaKhachHang = maKhachHang, MaHDV = MaHDV, MaTour = MaTour, MaVoucher = maVoucherDuocApDung, NgayDat = NgayDat, KhungGio = KhungGio, GhiChu = GhiChu, TrangThai = (int)TrangThaiDonDat.ChoXacNhan };
             _context.DonDatLichs.Add(donMoi);
             await _context.SaveChangesAsync();
 
@@ -79,7 +104,6 @@ namespace HeThongDatLich.Controllers.KhachHangControllers
             return RedirectToAction("LichSu");
         }
 
-        // Chức năng 3.1.5: Xem lịch sử danh sách đơn đặt lịch
         public async Task<IActionResult> LichSu()
         {
             var userIdStr = HttpContext.Session.GetString("UserId");
@@ -87,10 +111,12 @@ namespace HeThongDatLich.Controllers.KhachHangControllers
             int maKhachHang = int.Parse(userIdStr);
 
             var donHangs = await _context.DonDatLichs
-                .Include(d => d.KhachHang) // <-- BỔ SUNG DÒNG NÀY ĐỂ LẤY TÊN KHÁCH HÀNG
-                .Include(d => d.HDV).ThenInclude(h => h.NguoiDung)
+                .Include(d => d.KhachHang)
+                .Include(d => d.HDV)
+                    .ThenInclude(h => h.NguoiDung)
                 .Include(d => d.GoiTour)
-                .Include(d => d.HoaDon).ThenInclude(hd => hd.PhuongThucThanhToan)
+                .Include(d => d.HoaDon)
+                    .ThenInclude(hd => hd.PhuongThucThanhToan)
                 .Include(d => d.DanhGias)
                 .Where(d => d.MaKhachHang == maKhachHang)
                 .OrderByDescending(d => d.NgayDat)
@@ -99,13 +125,26 @@ namespace HeThongDatLich.Controllers.KhachHangControllers
             return View("~/Views/KhachHang/LichSu.cshtml", donHangs);
         }
 
-        // Chức năng 3.1.7: Gửi đánh giá phản hồi
+        // =========================================================================================
+        // GHI CHÚ: Hàm này xử lý việc khách hàng gửi đánh giá (số sao, nội dung).
+        // LINQ sử dụng: FindAsync.
+        // =========================================================================================
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> GuiDanhGia(int MaDatLich, int SoSao, string NoiDung)
         {
+            // [ÁP DỤNG VALIDATION]: Kiểm tra nội dung đầu vào, chặn ký tự đặc biệt/số ở đầu
+            if (!DanhGiaValidation.IsValidNoiDung(NoiDung, out string errorMsg))
+            {
+                TempData["ErrorMessage"] = errorMsg; // Đẩy lỗi ra giao diện nếu có
+                return RedirectToAction("LichSu");
+            }
+
             var donHang = await _context.DonDatLichs.FindAsync(MaDatLich);
-            if (donHang == null || donHang.TrangThai != 3) return RedirectToAction("LichSu");
+
+            // [ÁP DỤNG ENUM]: Kiểm tra trạng thái đơn phải là Hoàn thành (3) thì mới được đánh giá
+            if (donHang == null || donHang.TrangThai != (int)TrangThaiDonDat.HoanThanh)
+                return RedirectToAction("LichSu");
 
             var danhGiaMoi = new DANHGIA { MaDatLich = MaDatLich, SoSao = SoSao, NoiDung = NoiDung };
             _context.DanhGias.Add(danhGiaMoi);

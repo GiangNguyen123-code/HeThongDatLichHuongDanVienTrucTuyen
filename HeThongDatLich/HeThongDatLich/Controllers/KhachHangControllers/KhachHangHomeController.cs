@@ -13,16 +13,22 @@ namespace HeThongDatLich.Controllers.KhachHangControllers
         private readonly AppDbContext _context;
         public KhachHangHomeController(AppDbContext context) { _context = context; }
 
-        // Chức năng 3.1.2: Tìm kiếm, lọc & Hiển thị danh sách HDV
+        //=========================================================================================
+        // GHI CHÚ: Hàm này là trang chủ của Khách hàng, sử dụng để lấy danh sách Hướng dẫn viên đang hoạt động,
+        // đồng thời thực hiện logic Tìm kiếm theo Tên/Địa điểm và Lọc theo Tỉnh thành/Ngôn ngữ.
+        // LINQ sử dụng: Include (nạp dữ liệu liên quan), Where (lọc điều kiện động), Contains (tìm chuỗi hoặc lọc danh sách mảng).
+        // =========================================================================================
         public async Task<IActionResult> Index(string tuKhoa, List<int> maTinh, List<int> maNgonNgu)
         {
-            // LƯU Ý: Nếu _context.HDVs báo lỗi gạch đỏ, hãy sửa lại thành _context.HoSoHDVs cho khớp với AppDbContext của bạn nhé
             var query = _context.HDVs
                 .Include(h => h.NguoiDung)
                 .Include(h => h.NgonNgu)
-                .Include(h => h.PhuongXa).ThenInclude(p => p.TinhThanh)
-                .Include(h => h.DonDatLichs).ThenInclude(d => d.DanhGias)
-                .Where(h => h.TrangThaiHoatDong == 1 && h.NguoiDung.TrangThaiKhoa != true);
+                .Include(h => h.PhuongXa)
+                    .ThenInclude(p => p.TinhThanh)
+                .Include(h => h.DonDatLichs)
+                    .ThenInclude(d => d.DanhGias)
+                .Where(h => h.TrangThaiHoatDong == 1 && h.NguoiDung.TrangThaiKhoa != true)
+                .AsQueryable(); // Chuyển thành dạng Queryable để nối thêm các điều kiện Where bên dưới
 
             if (!string.IsNullOrEmpty(tuKhoa))
             {
@@ -51,20 +57,26 @@ namespace HeThongDatLich.Controllers.KhachHangControllers
             return View("~/Views/KhachHang/Index.cshtml", await query.ToListAsync());
         }
 
-        // Chức năng 3.1.3: Xem chi tiết Profile HDV (Đã khôi phục lại)
+        // =========================================================================================
+        // GHI CHÚ: Hàm này dùng để xem thông tin hồ sơ chi tiết của một Hướng dẫn viên cụ thể (bao gồm các Tour, Đánh giá,...).
+        // LINQ sử dụng: Include (nạp các bảng liên quan), FirstOrDefaultAsync (Tìm HDV khớp với ID truyền vào).
+        // =========================================================================================
         public async Task<IActionResult> ChiTietHDV(int id)
         {
-            // Tương tự, đổi .HDVs thành .HoSoHDVs nếu bị gạch đỏ
             var hdv = await _context.HDVs
                 .Include(h => h.NguoiDung)
                 .Include(h => h.NgonNgu)
-                .Include(h => h.PhuongXa).ThenInclude(px => px.TinhThanh)
+                .Include(h => h.PhuongXa)
+                    .ThenInclude(px => px.TinhThanh)
                 .Include(h => h.GoiTours)
-                .Include(h => h.DonDatLichs).ThenInclude(d => d.KhachHang)
-                .Include(h => h.DonDatLichs).ThenInclude(d => d.DanhGias)
+                .Include(h => h.DonDatLichs)
+                    .ThenInclude(d => d.KhachHang)
+                .Include(h => h.DonDatLichs)
+                    .ThenInclude(d => d.DanhGias)
                 .FirstOrDefaultAsync(h => h.MaHDV == id);
 
-            if (hdv == null) return NotFound();
+            if (hdv == null)
+                return NotFound();
 
             return View("~/Views/KhachHang/ChiTietHDV.cshtml", hdv);
         }
