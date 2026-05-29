@@ -1,6 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@{
+    Layout = null;
+}
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -606,14 +609,14 @@
 @inject IHttpContextAccessor HttpContextAccessor
 
 @{
-    // Lấy tên người dùng và vai trò từ Session sau khi họ đăng nhập thành công
     var userName = HttpContextAccessor.HttpContext.Session.GetString("UserName");
-    var userRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole");
-    
+
+    // Sử dụng ?? "" để biến giá trị null thành chuỗi rỗng khi chưa đăng nhập
+    var userRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole") ?? "";
+
     string firstLetter = "U";
     if (!string.IsNullOrEmpty(userName))
     {
-        // Lấy chữ cái đầu tiên của từ cuối cùng trong tên để làm avatar chữ
         var words = userName.Trim().Split(' ');
         firstLetter = words[words.Length - 1].Substring(0, 1).ToUpper();
     }
@@ -623,10 +626,26 @@
 <nav class="bt-nav">
     <a class="brand" asp-action="Index" asp-controller="Home">BookingTravel</a>
     <ul class="nav-links">
-        <li><a href="#" class="active">Home</a></li>
-        <li><a href="#">Quản lý lịch</a></li>
-        <li><a href="#">HDV</a></li>
-        <li><a href="#">Admin</a></li>
+        <li><a asp-action="Index" asp-controller="Home" class="active">Home</a></li>
+
+        @* Nếu chuỗi quyền chứa ký tự '2' -> Hiện nút Quản lý lịch cho Khách *@
+        @if (userRole.Contains("2"))
+        {
+            <li><a asp-action="LichTrinh" asp-controller="TrangChuKH">Quản lý lịch</a></li>
+        }
+
+        @* Nếu chuỗi quyền chứa ký tự '3' -> Hiện nút HDV *@
+        @if (userRole.Contains("3"))
+        {
+            <li><a asp-action="TongQuanHDV" asp-controller="TrangChuHDV">HDV</a></li>
+        }
+
+        @* Nếu chuỗi quyền chứa ký tự '1' -> Hiện nút Admin *@
+        @if (userRole.Contains("1"))
+        {
+            <li><a asp-action="TongQuanAdmin" asp-controller="TrangChuAd">Admin</a></li>
+        }
+
         <li><a href="#">Help</a></li>
     </ul>
     <div class="nav-right">

@@ -37,13 +37,18 @@
 <body>
     <nav class="bt-nav">
         <a class="brand" asp-action="Index" asp-controller="KhachHangHome">BookingTravel</a>
+        
         <ul class="nav-links">
             <li><a asp-action="Index" asp-controller="KhachHangHome">Trang chủ Khách</a></li>
-            @if (userRole == "KhachHang")
+            
+            @* Fix nhẹ điều kiện phòng hờ Session lưu quyền là số "2" hoặc chữ "KhachHang" *@
+            @if (userRole == "KhachHang" || userRole == "2")
             {
                 <li><a asp-action="LichSu" asp-controller="KhachHangDonDat">Quản lý chuyến đi</a></li>
+                <li><a asp-action="Index" asp-controller="KhachHangProfile">Hồ sơ cá nhân</a></li>
             }
         </ul>
+        
         <div class="nav-right">
             @if (string.IsNullOrEmpty(userName))
             {
@@ -52,9 +57,14 @@
             else
             {
                 <div style="display:flex; align-items:center; gap:12px;">
-                    <div class="btn-avatar">@firstLetter</div>
-                    <span style="font-size:13px; font-weight:500;">Hi, @userName</span>
-                    <a asp-action="DangXuat" asp-controller="TaiKhoan" style="color:#ef4444; font-size:14px;"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                    <a asp-action="Index" asp-controller="KhachHangProfile" style="display:flex; align-items:center; gap:8px; text-decoration:none; color:inherit; cursor:pointer;" title="Xem thông tin tài khoản">
+                        <div class="btn-avatar">@firstLetter</div>
+                        <span style="font-size:13px; font-weight:500; transition: color 0.2s;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='inherit'">Hi, @userName</span>
+                    </a>
+                    
+                    <a asp-action="DangXuat" asp-controller="TaiKhoan" style="color:#ef4444; font-size:14px; margin-left: 8px;" title="Đăng xuất">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </a>
                 </div>
             }
         </div>

@@ -40,7 +40,7 @@ namespace HeThongDatLich.Models
         [ForeignKey(nameof(MaTour))]
         public virtual GOITOUR GoiTour { get; set; }
 
-        public virtual HOADON? HoaDon { get; set; } // Đơn đặt có thể chưa có hóa đơn ngay lúc đầu
+        public virtual HOADON HoaDon { get; set; } 
 
         public virtual ICollection<DANHGIA> DanhGias { get; set; } = new List<DANHGIA>();
     }

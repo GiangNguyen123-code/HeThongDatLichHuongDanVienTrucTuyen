@@ -74,7 +74,8 @@ namespace HeThongDatLich.Controllers
             // Chuyển hướng khu vực tương ứng dựa trên quyền thực tế trong DB
             if (userRole == "Admin")
             {
-                return RedirectToAction("Index", "Home", new { area = "Admin" });
+                // Chuyển hướng thẳng vào trang Tổng quan Admin
+                return RedirectToAction("TongQuanAdmin", "TrangChuAd");
             }
             else if (userRole == "HDV")
             {

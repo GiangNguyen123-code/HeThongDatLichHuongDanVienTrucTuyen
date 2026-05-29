@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\HeThongDatLich",
+    "\\HeThongDatLich\\Controllers",
+    "\\HeThongDatLich\\Controllers\\KhachHangControllers",
+    "\\HeThongDatLich\\Enums",
+    "\\HeThongDatLich\\Migrations",
+    "\\HeThongDatLich\\Models",
+    "\\HeThongDatLich\\Views",
+    "\\HeThongDatLich\\Views\\KhachHang"
+  ],
+  "SelectedNode": "\\HeThongDatLich.slnx",
+  "PreviewInSolutionExplorer": false
+}

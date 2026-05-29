@@ -19,21 +19,20 @@ public class AppDbContext : DbContext
     public DbSet<DANHGIA> DanhGias { get; set; }
     public DbSet<PHUONGTHUCTHANHTOAN> PhuongThucThanhToans { get; set; }
     public DbSet<HOADON> HoaDons { get; set; }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
-        // 1. Cấu hình khóa kép cho bảng trung gian PhanQuyens
+        // 1. Cấu hình khóa phức hợp cho PhanQuyens
         modelBuilder.Entity<PHANQUYEN>()
             .HasKey(pq => new { pq.MaNguoiDung, pq.MaQuyen });
 
         // 2. Cấu hình mối quan hệ 1-1 giữa DonDatLichs và HoaDons qua trường MaDatLich
         modelBuilder.Entity<DONDATLICH>()
-            .HasOne(d => d.HoaDon)
-            .WithOne(h => h.DonDatLich)
-            .HasForeignKey<HOADON>(h => h.MaDatLich)
-            .OnDelete(DeleteBehavior.Restrict);
+        .HasOne(d => d.HoaDon) // Đã nắn lại thành HasOne cho đúng quan hệ 1-1
+        .WithOne(h => h.DonDatLich)
+        .HasForeignKey<HOADON>(h => h.MaDatLich) // Cần khai báo rõ class <HOADON> ở đây
+        .OnDelete(DeleteBehavior.Restrict);
 
         // 3. Cấu hình mối quan hệ 1-1 giữa NguoiDungs và HDVs (MaNguoiDung FK trỏ tới MaHDV PK)
         modelBuilder.Entity<NGUOIDUNG>()
@@ -53,12 +52,6 @@ public class AppDbContext : DbContext
             .HasOne(d => d.HDV)
             .WithMany(h => h.DonDatLichs)
             .HasForeignKey(d => d.MaHDV)
-            .OnDelete(DeleteBehavior.Restrict);
-
-        modelBuilder.Entity<GOITOUR>()
-            .HasOne(g => g.HDV)
-            .WithMany(h => h.GoiTours)
-            .HasForeignKey(g => g.MaHDV)
             .OnDelete(DeleteBehavior.Restrict);
     }
 }

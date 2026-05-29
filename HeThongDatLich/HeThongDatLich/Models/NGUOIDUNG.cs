@@ -29,7 +29,6 @@ namespace HeThongDatLich.Models
 
         public bool? TrangThaiKhoa { get; set; }
 
-       
         public virtual HOSOHDV? HDV { get; set; }
 
         public virtual ICollection<PHANQUYEN> PhanQuyens { get; set; } = new List<PHANQUYEN>();

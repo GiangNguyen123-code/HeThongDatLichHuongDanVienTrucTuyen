@@ -427,7 +427,7 @@ namespace HeThongDatLich.Migrations
                     b.HasOne("HeThongDatLich.Models.HOSOHDV", "HDV")
                         .WithMany("GoiTours")
                         .HasForeignKey("MaHDV")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("HDV");
@@ -513,7 +513,8 @@ namespace HeThongDatLich.Migrations
                 {
                     b.Navigation("DanhGias");
 
-                    b.Navigation("HoaDon");
+                    b.Navigation("HoaDon")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("HeThongDatLich.Models.GOITOUR", b =>

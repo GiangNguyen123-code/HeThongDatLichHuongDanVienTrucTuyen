@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HeThongDatLich.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260523152150_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260527141343_HeThongV2")]
+    partial class HeThongV2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -430,7 +430,7 @@ namespace HeThongDatLich.Migrations
                     b.HasOne("HeThongDatLich.Models.HOSOHDV", "HDV")
                         .WithMany("GoiTours")
                         .HasForeignKey("MaHDV")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("HDV");
@@ -516,7 +516,8 @@ namespace HeThongDatLich.Migrations
                 {
                     b.Navigation("DanhGias");
 
-                    b.Navigation("HoaDon");
+                    b.Navigation("HoaDon")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("HeThongDatLich.Models.GOITOUR", b =>
