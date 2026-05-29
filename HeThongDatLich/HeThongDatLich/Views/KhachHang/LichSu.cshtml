@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<HeThongDatLich.Models.DONDATLICH>
+@using HeThongDatLich.Extensions <!-- [ĐÃ BỔ SUNG]: Khai báo Extension -->
 @{
     ViewData["Title"] = "Quản lý chuyến đi";
     Layout = "~/Views/Shared/_LayoutKhachHang.cshtml";
@@ -330,7 +331,8 @@
                         else if (item.TrangThai == 4) { <span class="status-badge status-4"><i class="fa-regular fa-circle-xmark"></i> Đã hủy</span> }
                     </div>
                     
-                    <div class="total-price">@((item.HoaDon?.TongTien ?? 0).ToString("N0"))đ</div>
+                    <!-- [ÁP DỤNG EXTENSION TẠI ĐÂY]: Định dạng tổng tiền -->
+                    <div class="total-price">@((item.HoaDon?.TongTien ?? 0).ToVnd())</div>
                     
                     <div class="action-group">
                         <button class="btn-action-detail" onclick="openModal('modal_detail_@item.MaDatLich')">Xem chi tiết</button>
@@ -381,7 +383,8 @@
                     {
                         <div class="detail-row">
                             <span class="detail-label">Mã giảm giá áp dụng</span>
-                            <span class="detail-value text-success">-@((item.HoaDon?.SoTienGiam ?? 0).ToString("N0"))đ</span>
+                            <!-- [ÁP DỤNG EXTENSION TẠI ĐÂY]: Định dạng số tiền giảm -->
+                            <span class="detail-value text-success">-@((item.HoaDon?.SoTienGiam ?? 0).ToVnd())</span>
                         </div>
                     }
                     
@@ -397,7 +400,8 @@
 
                     <div class="detail-row border-0 mt-2 p-0">
                         <span class="detail-label fs-5">Tổng tiền</span>
-                        <span class="detail-value fs-4 text-danger">@((item.HoaDon?.TongTien ?? 0).ToString("N0"))đ</span>
+                        <!-- [ÁP DỤNG EXTENSION TẠI ĐÂY]: Định dạng lại tổng tiền trong popup Modal -->
+                        <span class="detail-value fs-4 text-danger">@((item.HoaDon?.TongTien ?? 0).ToVnd())</span>
                     </div>
                 </div>
             </div>
