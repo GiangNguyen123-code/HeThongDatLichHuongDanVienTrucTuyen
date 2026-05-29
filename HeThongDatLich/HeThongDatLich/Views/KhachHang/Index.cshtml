@@ -1,0 +1,323 @@
+﻿@model IEnumerable<HeThongDatLich.Models.HOSOHDV>
+@using HeThongDatLich.Extensions <!-- [ĐÃ BỔ SUNG EXTENSION] -->
+@{
+    ViewData["Title"] = "Trang chủ - BookingTravel";
+    Layout = "~/Views/Shared/_LayoutKhachHang.cshtml";
+
+    // XỬ LÝ LOGIC: Kiểm tra xem người dùng có đang tìm kiếm/lọc hay không
+    var selectedTinh = ViewBag.SelectedTinh as List<int> ?? new List<int>();
+    var selectedNgonNgu = ViewBag.SelectedNgonNgu as List<int> ?? new List<int>();
+    string tuKhoa = ViewBag.TuKhoa as string;
+    
+    bool isFiltering = !string.IsNullOrEmpty(tuKhoa) || selectedTinh.Any() || selectedNgonNgu.Any();
+}
+
+<style>
+    /* 1. HERO SECTION & SEARCH BAR */
+    .hero-section {
+        background: url('https://images.unsplash.com/photo-1528127269322-539801943592?w=1600') center/cover no-repeat;
+        padding: 120px 20px 140px;
+        text-align: center;
+        color: white;
+        position: relative;
+    }
+    .hero-overlay {
+        position: absolute; inset: 0;
+        background: linear-gradient(180deg, rgba(15,23,42,0.5) 0%, rgba(15,23,42,0.85) 100%);
+    }
+    .hero-content {
+        position: relative; z-index: 1; max-width: 850px; margin: 0 auto;
+        animation: fadeIn 0.8s ease;
+    }
+    .hero-content h1 {
+        font-size: 46px; font-weight: 800; margin-bottom: 16px;
+        letter-spacing: -0.5px;
+    }
+    .hero-content p {
+        font-size: 17px; margin-bottom: 45px; color: #e2e8f0; font-weight: 400;
+    }
+    
+    .search-bar {
+        display: flex; background: #fff; border-radius: 50px; padding: 8px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15); margin: 0 auto; max-width: 750px;
+        transform: translateY(20px);
+    }
+    .search-input-wrap {
+        flex: 1; display: flex; align-items: center; padding: 0 25px;
+    }
+    .search-input-wrap i {
+        color: #3b82f6; font-size: 20px; margin-right: 15px;
+    }
+    .search-input-wrap input {
+        width: 100%; border: none; outline: none; font-size: 16px; height: 50px;
+        font-family: inherit; color: #0f172a; background: transparent;
+    }
+    .search-input-wrap input::placeholder { color: #94a3b8; }
+    .btn-search {
+        background: #2563eb; color: #fff; border: none; padding: 0 40px;
+        font-weight: 600; font-size: 16px; cursor: pointer; border-radius: 40px;
+        transition: all 0.2s; box-shadow: 0 4px 12px rgba(37,99,235,0.2);
+    }
+    .btn-search:hover { background: #1d4ed8; transform: translateY(-1px); }
+
+    /* 2. MAIN LAYOUT */
+    .main-container {
+        max-width: 1240px; margin: 0 auto 80px; padding: 0 20px;
+        display: flex; gap: 40px; align-items: flex-start;
+    }
+    
+    /* 3. SIDEBAR FILTER */
+    .filter-sidebar {
+        width: 280px; background: #fff; padding: 28px; border-radius: 24px;
+        box-shadow: 0 4px 25px rgba(0,0,0,0.03); border: 1px solid #f1f5f9;
+        flex-shrink: 0; position: sticky; top: 100px;
+    }
+    .filter-header {
+        display: flex; justify-content: space-between; align-items: center;
+        margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid #f1f5f9;
+    }
+    .filter-header span { font-weight: 800; font-size: 14px; color: #0f172a; letter-spacing: 0.5px; }
+    .filter-header a { font-size: 13px; color: #3b82f6; text-decoration: none; font-weight: 600; }
+    .filter-group { margin-bottom: 28px; }
+    .filter-group > label { display: block; font-weight: 700; margin-bottom: 15px; font-size: 15px; color: #1e293b; }
+    
+    .check-label {
+        display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+        font-size: 14px; color: #475569; cursor: pointer; transition: 0.2s;
+    }
+    .check-label:hover { color: #0f172a; }
+    .check-label input { width: 18px; height: 18px; accent-color: #2563eb; cursor: pointer; border-radius: 4px; }
+    
+    .btn-apply {
+        width: 100%; padding: 14px; background: #eff6ff; color: #2563eb; border: none; border-radius: 12px;
+        font-weight: 700; font-size: 14px; cursor: pointer; transition: 0.2s;
+    }
+    .btn-apply:hover { background: #2563eb; color: #fff; }
+
+    /* 4. GUIDE CARDS */
+    .list-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; }
+    .list-title { font-size: 26px; font-weight: 800; color: #0f172a; margin-bottom: 6px; }
+    .list-subtitle { font-size: 15px; color: #64748b; }
+    
+    .guide-grid {
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 28px;
+    }
+    .guide-card {
+        background: #fff; border-radius: 24px; overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid #f1f5f9;
+        transition: all 0.3s ease; display: flex; flex-direction: column;
+    }
+    .guide-card:hover {
+        transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-color: #e2e8f0;
+    }
+    .card-img-wrap { height: 220px; overflow: hidden; position: relative; }
+    .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .guide-card:hover .card-img-wrap img { transform: scale(1.08); }
+    
+    .rating-badge {
+        position: absolute; top: 16px; right: 16px; background: rgba(15,23,42,0.8);
+        backdrop-filter: blur(8px); color: #fff; padding: 6px 12px; border-radius: 30px;
+        font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px;
+    }
+    .rating-badge i { color: #fbbf24; }
+    
+    .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .card-title-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .card-name { font-weight: 800; font-size: 18px; color: #0f172a; line-height: 1.3; margin-right: 10px; }
+    .card-price { font-weight: 800; font-size: 17px; color: #2563eb; white-space: nowrap; }
+    
+    .card-location { font-size: 14px; color: #64748b; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+    
+    .card-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+    .tag { padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.3px; }
+    .tag-blue { background: #eff6ff; color: #2563eb; }
+    .tag-green { background: #f0fdf4; color: #059669; }
+    
+    .btn-detail {
+        display: block; width: 100%; text-align: center; padding: 12px 0;
+        background: #fff; border: 1.5px solid #cbd5e1; color: #334155;
+        border-radius: 12px; text-decoration: none; font-size: 15px; font-weight: 700;
+        transition: all 0.2s; margin-top: auto;
+    }
+    .btn-detail:hover { background: #0f172a; border-color: #0f172a; color: #fff; }
+
+    /* 5. EXTRA SECTION (KHI KHÔNG LỌC) */
+    .extra-section { max-width: 1240px; margin: 80px auto 80px; padding: 0 20px; }
+    .extra-title { font-size: 26px; font-weight: 800; color: #0f172a; margin-bottom: 25px; }
+    .dest-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .dest-card {
+        position: relative; border-radius: 24px; overflow: hidden; height: 260px;
+        cursor: pointer; transition: 0.3s;
+    }
+    .dest-card:hover { transform: translateY(-6px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+    .dest-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+    .dest-card:hover img { transform: scale(1.1); }
+    .dest-overlay {
+        position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, transparent 60%);
+        display: flex; align-items: flex-end; padding: 24px;
+    }
+    .dest-overlay h4 { color: white; font-size: 20px; font-weight: 800; margin: 0; }
+    .dest-overlay p { color: #cbd5e1; font-size: 14px; margin-top: 6px; }
+
+    @@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+
+<section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Bắt đầu hành trình đích thực</h1>
+        <p>Kết nối với những hướng dẫn viên bản địa am hiểu nhất cho chuyến đi của bạn.</p>
+        
+        <form action="@Url.Action("Index", "KhachHangHome")" method="get" class="search-bar">
+            <div class="search-input-wrap">
+                <i class="fa-solid fa-location-dot"></i>
+                <input type="text" name="tuKhoa" value="@ViewBag.TuKhoa" placeholder="Bạn muốn đi đâu? Nhập tên điểm đến hoặc tên HDV...">
+            </div>
+            <button type="submit" class="btn-search">Tìm kiếm</button>
+        </form>
+    </div>
+</section>
+
+@if (!isFiltering)
+{
+    <div class="extra-section">
+        <h2 class="extra-title">Khám phá các điểm đến phổ biến</h2>
+        <div class="dest-grid">
+            <div class="dest-card" onclick="document.querySelector('input[name=\'tuKhoa\']').value='Hà Nội'; document.querySelector('.search-bar').submit();">
+                <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=600" alt="Hà Nội">
+                <div class="dest-overlay"><div><h4>Hà Nội</h4><p>Thủ đô ngàn năm văn hiến</p></div></div>
+            </div>
+            <div class="dest-card" onclick="document.querySelector('input[name=\'tuKhoa\']').value='Đà Nẵng'; document.querySelector('.search-bar').submit();">
+                <img src="https://images.unsplash.com/photo-1559508551-44bff1de756b?w=600" alt="Đà Nẵng">
+                <div class="dest-overlay"><div><h4>Đà Nẵng</h4><p>Thành phố đáng sống</p></div></div>
+            </div>
+            <div class="dest-card" onclick="document.querySelector('input[name=\'tuKhoa\']').value='Hội An'; document.querySelector('.search-bar').submit();">
+                <img src="https://images.unsplash.com/photo-1555921015-5532091f6026?w=600" alt="Hội An">
+                <div class="dest-overlay"><div><h4>Hội An</h4><p>Phố cổ thơ mộng</p></div></div>
+            </div>
+            <div class="dest-card" onclick="document.querySelector('input[name=\'tuKhoa\']').value='Hồ Chí Minh'; document.querySelector('.search-bar').submit();">
+                <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=600" alt="TP. HCM">
+                <div class="dest-overlay"><div><h4>TP. Hồ Chí Minh</h4><p>Sôi động và nhộn nhịp</p></div></div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="main-container" style="@(isFiltering ? "margin-top: 100px;" : "")">
+    
+    <aside class="filter-sidebar">
+        <form method="get" action="@Url.Action("Index", "KhachHangHome")">
+            <input type="hidden" name="tuKhoa" value="@ViewBag.TuKhoa" />
+
+            <div class="filter-header">
+                <span>BỘ LỌC TÌM KIẾM</span>
+                <a href="@Url.Action("Index", "KhachHangHome")">Xóa tất cả</a>
+            </div>
+
+            <div class="filter-group">
+                <label>Khu vực</label>
+                @if (ViewBag.TinhThanhs != null)
+                {
+                    foreach (var tinh in ViewBag.TinhThanhs)
+                    {
+                        <label class="check-label">
+                            <input type="checkbox" name="maTinh" value="@tinh.MaTinh" @(selectedTinh.Contains(tinh.MaTinh) ? "checked" : "")>
+                            <span>@tinh.TenTinh</span>
+                        </label>
+                    }
+                }
+            </div>
+
+            <div class="filter-group">
+                <label>Ngôn ngữ</label>
+                @if (ViewBag.NgonNgus != null)
+                {
+                    foreach (var lang in ViewBag.NgonNgus)
+                    {
+                        <label class="check-label">
+                            <input type="checkbox" name="maNgonNgu" value="@lang.MaNgonNgu" @(selectedNgonNgu.Contains(lang.MaNgonNgu) ? "checked" : "")>
+                            <span>@lang.TenNgonNgu</span>
+                        </label>
+                    }
+                }
+            </div>
+        
+            <button type="submit" class="btn-apply">Áp dụng lọc</button>
+        </form>
+    </aside>
+
+    <div style="flex: 1;">
+        <div class="list-header">
+            <div>
+                @if (isFiltering)
+                {
+                    <h2 class="list-title">Kết quả tìm kiếm</h2>
+                    <p class="list-subtitle">Tìm thấy <strong>@Model.Count()</strong> hướng dẫn viên phù hợp với tiêu chí của bạn.</p>
+                }
+                else
+                {
+                    <h2 class="list-title">Gợi ý Hướng dẫn viên hàng đầu</h2>
+                    <p class="list-subtitle">Những người đồng hành tuyệt vời nhất được khách hàng đánh giá cao.</p>
+                }
+            </div>
+        </div>
+
+        <div class="guide-grid">
+            @if (!Model.Any())
+            {
+                <div style="grid-column: 1 / -1; padding: 80px 20px; text-align: center; border: 2px dashed #cbd5e1; border-radius: 24px; background: #fff;">
+                    <i class="fa-solid fa-magnifying-glass-location" style="font-size: 56px; margin-bottom: 20px; color: #94a3b8;"></i>
+                    <h3 style="font-size: 20px; font-weight: 800; color: #0f172a; margin-bottom: 10px;">Không tìm thấy kết quả</h3>
+                    <p style="font-size: 15px; color: #64748b;">Rất tiếc, chưa có Hướng dẫn viên nào phù hợp với yêu cầu tìm kiếm của bạn.</p>
+                    <a href="@Url.Action("Index", "KhachHangHome")" style="color: #fff; margin-top: 20px; display: inline-block; text-decoration: none; font-weight: 600; padding: 12px 28px; background: #2563eb; border-radius: 12px;">Xóa bộ lọc</a>
+                </div>
+            }
+
+            @foreach (var hdv in Model)
+            {
+                var reviews = hdv.DonDatLichs.SelectMany(d => d.DanhGias).ToList();
+                double avgRating = reviews.Any() ? Math.Round(reviews.Average(r => r.SoSao), 1) : 5.0;
+                
+                // Đã xử lý logic fallback URL: Nếu trống hoặc mặc định, dùng placeholder ảnh phong cảnh.
+                string avatarURL = string.IsNullOrEmpty(hdv.NguoiDung.AnhDaiDien) || hdv.NguoiDung.AnhDaiDien == "Avatar_Text" 
+                    ? "https://images.unsplash.com/photo-1580894742597-87bc8789db3d?w=400" 
+                    : hdv.NguoiDung.AnhDaiDien;
+
+                <div class="guide-card">
+                    <div class="card-img-wrap">
+                        <img src="@avatarURL" alt="@hdv.NguoiDung.HoTen" onerror="this.src='https://ui-avatars.com/api/?name=@Uri.EscapeDataString(hdv.NguoiDung.HoTen)&background=random&size=400'">
+                        <div class="rating-badge">
+                            <i class="fa-solid fa-star"></i> @avgRating
+                        </div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="card-title-row">
+                            <h3 class="card-name">@hdv.NguoiDung.HoTen</h3>
+                            <!-- [ÁP DỤNG EXTENSION TẠI ĐÂY]: Định dạng giá thuê -->
+                            <span class="card-price">@hdv.GiaThue.ToVnd()</span>
+                        </div>
+                        
+                        <div class="card-location">
+                            <i class="fa-solid fa-location-dot"></i> @hdv.PhuongXa.TinhThanh.TenTinh 
+                            <span style="color:#cbd5e1; margin: 0 4px;">|</span> 
+                            <span style="font-size:13px; font-weight: 500;">/ ngày</span>
+                        </div>
+                        
+                        <div class="card-tags">
+                            <span class="tag tag-blue">@hdv.NgonNgu.TenNgonNgu</span>
+                            @if (hdv.KinhNghiem > 0)
+                            {
+                                <span class="tag tag-green">@hdv.KinhNghiem năm KN</span>
+                            }
+                        </div>
+                        
+                        <a href="@Url.Action("ChiTietHDV", "KhachHangHome", new { id = hdv.MaHDV })" class="btn-detail">
+                            Xem chi tiết
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,130 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\validation\\datlichvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\validation\\datlichvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\validation\\danhgiavalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\validation\\danhgiavalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\helpers\\thongbaotrunglich.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\helpers\\thongbaotrunglich.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\extensions\\currencyextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\extensions\\currencyextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\enums\\trangthaidondatenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\enums\\trangthaidondatenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|e:\\c#\\hethongdatlichhuongdanvientructuyen\\hethongdatlich\\hethongdatlich\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9B9FB4E-0874-5FA2-A499-311DE3F0F37F}|HeThongDatLich\\HeThongDatLich.csproj|solutionrelative:hethongdatlich\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 211,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DatLichValidation.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Validation\\DatLichValidation.cs",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Validation\\DatLichValidation.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Validation\\DatLichValidation.cs",
+              "RelativeToolTip": "HeThongDatLich\\Validation\\DatLichValidation.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-29T04:25:26.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DanhGiaValidation.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Validation\\DanhGiaValidation.cs",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Validation\\DanhGiaValidation.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Validation\\DanhGiaValidation.cs",
+              "RelativeToolTip": "HeThongDatLich\\Validation\\DanhGiaValidation.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-29T04:25:22.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ThongBaoTrungLich.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Helpers\\ThongBaoTrungLich.cs",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Helpers\\ThongBaoTrungLich.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Helpers\\ThongBaoTrungLich.cs",
+              "RelativeToolTip": "HeThongDatLich\\Helpers\\ThongBaoTrungLich.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-29T04:25:15.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CurrencyExtensions.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Extensions\\CurrencyExtensions.cs",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Extensions\\CurrencyExtensions.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Extensions\\CurrencyExtensions.cs",
+              "RelativeToolTip": "HeThongDatLich\\Extensions\\CurrencyExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-29T04:25:09.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TrangThaiDonDatEnum.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Enums\\TrangThaiDonDatEnum.cs",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Enums\\TrangThaiDonDatEnum.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Enums\\TrangThaiDonDatEnum.cs",
+              "RelativeToolTip": "HeThongDatLich\\Enums\\TrangThaiDonDatEnum.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-29T04:25:04.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Program.cs",
+              "RelativeDocumentMoniker": "HeThongDatLich\\Program.cs",
+              "ToolTip": "E:\\C#\\HeThongDatLichHuongDanVienTrucTuyen\\HeThongDatLich\\HeThongDatLich\\Program.cs",
+              "RelativeToolTip": "HeThongDatLich\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T15:59:18.987Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
