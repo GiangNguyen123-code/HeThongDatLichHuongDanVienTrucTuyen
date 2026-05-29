@@ -1,0 +1,543 @@
+﻿@{
+    ViewData["Title"] = "Đăng ký";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng ký – BookingTravel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --ink:       #1a1a2e;
+            --blue:      #2563eb;
+            --blue-dark: #1d4ed8;
+            --blue-soft: #eff6ff;
+            --gray-100:  #f8fafc;
+            --gray-200:  #e2e8f0;
+            --gray-400:  #94a3b8;
+            --gray-600:  #475569;
+            --white:     #ffffff;
+            --radius:    12px;
+        }
+
+        html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(--gray-100); }
+
+        .page {
+            display: grid;
+            grid-template-columns: 1fr 520px;
+            min-height: 100vh;
+        }
+
+        /* LEFT */
+        .panel-left {
+            position: relative; overflow: hidden; background: var(--ink);
+        }
+
+        .panel-left img.bg {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover; opacity: .65;
+            transition: transform 8s ease;
+        }
+
+        .panel-left:hover img.bg { transform: scale(1.04); }
+
+        .overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg,
+                rgba(15,23,42,.75) 0%,
+                rgba(30,58,138,.4) 55%,
+                transparent 100%);
+        }
+
+        .left-content {
+            position: relative; z-index: 2;
+            display: flex; flex-direction: column;
+            height: 100%; padding: 36px 48px;
+        }
+
+        .logo {
+            display: flex; align-items: center; gap: 10px;
+            color: var(--white); font-size: 18px; font-weight: 600;
+        }
+
+        .logo-icon {
+            width: 32px; height: 32px; background: var(--blue);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        }
+
+        .logo-icon svg { width: 18px; height: 18px; }
+
+        .left-body {
+            flex: 1; display: flex; flex-direction: column;
+            justify-content: flex-end; padding-bottom: 64px;
+        }
+
+        .left-body h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+            line-height: 1.2; color: var(--white); margin-bottom: 16px;
+        }
+
+        .left-body p {
+            font-size: 15px; font-weight: 300;
+            color: rgba(255,255,255,.75); max-width: 340px; line-height: 1.65;
+        }
+
+        /* Feature list */
+        .feature-list {
+            list-style: none; margin-top: 32px; display: flex; flex-direction: column; gap: 14px;
+        }
+
+        .feature-list li {
+            display: flex; align-items: center; gap: 12px;
+            font-size: 14px; color: rgba(255,255,255,.85);
+        }
+
+        .feat-icon {
+            width: 32px; height: 32px; border-radius: 8px;
+            background: rgba(255,255,255,.12);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* RIGHT */
+        .panel-right {
+            background: var(--white);
+            display: flex; align-items: center; justify-content: center;
+            padding: 30px 52px;
+        }
+
+        .form-box { width: 100%; max-width: 420px; }
+
+        .form-header-zone {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .form-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem; font-weight: 700;
+            color: var(--ink);
+        }
+
+        /* CSS Avatar Chữ Ban Đầu */
+        .avatar-text-preview {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(37,99,235,0.2);
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 14px; color: var(--gray-600); margin-bottom: 20px;
+        }
+
+        .social-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;
+        }
+
+        .btn-social {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            height: 44px; border-radius: var(--radius);
+            border: 1.5px solid var(--gray-200); background: var(--white);
+            font-size: 14px; font-weight: 500; color: var(--ink);
+            cursor: pointer; text-decoration: none;
+            transition: border-color .2s, box-shadow .2s, background .15s;
+        }
+
+        .btn-social:hover {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(37,99,235,.08);
+            background: var(--blue-soft);
+        }
+
+        .btn-social img { width: 18px; height: 18px; }
+
+        .divider {
+            display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+        }
+
+        .divider::before, .divider::after {
+            content: ''; flex: 1; height: 1px; background: var(--gray-200);
+        }
+
+        .divider span { font-size: 12px; color: var(--gray-400); white-space: nowrap; }
+
+        /* Fields */
+        .field-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px;
+        }
+
+        .field { margin-bottom: 14px; }
+
+        .field label {
+            display: block; font-size: 13px; font-weight: 500;
+            color: var(--ink); margin-bottom: 6px;
+        }
+
+        .input-wrap { position: relative; display: flex; align-items: center; }
+
+        .input-wrap .icon {
+            position: absolute; left: 14px; color: var(--gray-400); pointer-events: none;
+        }
+
+        .input-wrap input {
+            width: 100%; height: 44px;
+            padding: 0 40px 0 42px;
+            border: 1.5px solid var(--gray-200);
+            border-radius: var(--radius);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px; color: var(--ink); background: var(--white);
+            outline: none;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        .input-wrap input::placeholder { color: var(--gray-400); }
+
+        .input-wrap input:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+        }
+
+        .input-wrap .toggle-pw {
+            position: absolute; right: 12px;
+            background: none; border: none;
+            color: var(--gray-400); cursor: pointer; display: flex; padding: 0;
+            transition: color .2s;
+        }
+
+        .input-wrap .toggle-pw:hover { color: var(--blue); }
+
+        /* Strength meter */
+        .strength-bar {
+            display: flex; gap: 4px; margin-top: 6px;
+        }
+
+        .strength-bar span {
+            flex: 1; height: 3px; border-radius: 2px;
+            background: var(--gray-200);
+            transition: background .3s;
+        }
+
+        .strength-bar[data-level="1"] span:nth-child(1) { background: #ef4444; }
+        .strength-bar[data-level="2"] span:nth-child(1),
+        .strength-bar[data-level="2"] span:nth-child(2) { background: #f59e0b; }
+        .strength-bar[data-level="3"] span:nth-child(-n+3) { background: #3b82f6; }
+        .strength-bar[data-level="4"] span { background: #22c55e; }
+
+        /* Terms */
+        .terms-row {
+            display: flex; align-items: flex-start; gap: 10px; margin-bottom: 16px;
+        }
+
+        .terms-row input[type="checkbox"] {
+            width: 16px; height: 16px; margin-top: 2px;
+            accent-color: var(--blue); cursor: pointer; flex-shrink: 0;
+        }
+
+        .terms-row label {
+            font-size: 13px; color: var(--gray-600); line-height: 1.5; cursor: pointer;
+        }
+
+        .terms-row a { color: var(--blue); text-decoration: none; font-weight: 500; }
+        .terms-row a:hover { text-decoration: underline; }
+
+        /* Submit */
+        .btn-primary {
+            width: 100%; height: 48px;
+            background: var(--blue); color: var(--white);
+            border: none; border-radius: var(--radius);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px; font-weight: 600; cursor: pointer;
+            transition: background .2s, transform .1s, box-shadow .2s;
+            box-shadow: 0 4px 14px rgba(37,99,235,.32);
+        }
+
+        .btn-primary:hover { background: var(--blue-dark); box-shadow: 0 6px 18px rgba(37,99,235,.42); }
+        .btn-primary:active { transform: scale(.985); }
+
+        .form-footer {
+            text-align: center; margin-top: 16px;
+            font-size: 13px; color: var(--gray-600);
+        }
+
+        .form-footer a { color: var(--blue); font-weight: 600; text-decoration: none; }
+        .form-footer a:hover { text-decoration: underline; }
+
+        .links-row {
+            display: flex; justify-content: center; gap: 20px; margin-top: 20px;
+        }
+
+        .links-row a {
+            font-size: 12px; color: var(--gray-400); text-decoration: none; transition: color .2s;
+        }
+
+        .links-row a:hover { color: var(--blue); }
+
+        /* Error */
+        .alert-error {
+            background: #fef2f2; border: 1px solid #fecaca;
+            border-radius: var(--radius); padding: 12px 16px;
+            font-size: 13px; color: #b91c1c;
+            margin-bottom: 16px; display: flex; align-items: flex-start; gap: 8px;
+        }
+
+        @@media (max-width: 900px) {
+            .page { grid-template-columns: 1fr; }
+            .panel-left { display: none; }
+            .panel-right { padding: 40px 24px; min-height: 100vh; }
+            .field-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- LEFT -->
+    <div class="panel-left">
+        <img class="bg" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&auto=format&fit=crop" alt="Du lịch" />
+        <div class="overlay"></div>
+        <div class="left-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 2a14.5 14.5 0 0 0 0 20A14.5 14.5 0 0 0 12 2"/>
+                        <path d="M2 12h20"/>
+                    </svg>
+                </div>
+                BookingTravel
+            </div>
+
+            <div class="left-body">
+                <h1>Bắt đầu hành trình<br/>của bạn hôm nay.</h1>
+                <p>Tạo tài khoản miễn phí và khám phá hàng trăm tour du lịch với hướng dẫn viên bản địa uy tín.</p>
+
+                <ul class="feature-list">
+                    <li>
+                        <div class="feat-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+                                <path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                            </svg>
+                        </div>
+                        Đặt lịch tour trong vài giây
+                    </li>
+                    <li>
+                        <div class="feat-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        Thanh toán an toàn, bảo mật
+                    </li>
+                    <li>
+                        <div class="feat-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        Hỗ trợ 24/7 từ đội ngũ chúng tôi
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="panel-right">
+        <div class="form-box">
+            <div class="form-header-zone">
+                <h2>Tạo tài khoản mới</h2>
+                <!-- Khu vực hiển thị Avatar Chữ Tự Động -->
+                <div class="avatar-text-preview" id="avatarPreview">U</div>
+            </div>
+            <p class="subtitle">Tham gia cùng hàng nghìn du khách trên khắp Việt Nam</p>
+
+            <div class="social-row">
+                <a href="#" class="btn-social">
+                    <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" /> Google
+                </a>
+                <a href="#" class="btn-social">
+                    <img src="https://www.svgrepo.com/show/452197/facebook.svg" alt="Facebook" /> Facebook
+                </a>
+            </div>
+
+            <div class="divider"><span>Hoặc đăng ký bằng tài khoản</span></div>
+
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert-error">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    <span>
+                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                        { @error.ErrorMessage }
+                    </span>
+                </div>
+            }
+
+            <form method="post" asp-action="DangKyTK" asp-controller="TaiKhoan">
+                @Html.AntiForgeryToken()
+
+                <!-- Họ Tên & Số Điện Thoại -->
+                <div class="field-grid">
+                    <div class="field">
+                        <label for="hoTen">Họ và tên</label>
+                        <div class="input-wrap">
+                            <span class="icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                            </span>
+                            <input type="text" id="hoTen" name="hoTen" placeholder="Nguyễn Văn A" autocomplete="name" oninput="updateAvatarText(this.value)" required />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="soDienThoai">Số điện thoại</label>
+                        <div class="input-wrap">
+                            <span class="icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </span>
+                            <input type="tel" id="soDienThoai" name="soDienThoai" placeholder="0912345678" pattern="[0-9]{10,11}" required />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email (Dùng trực tiếp làm tên đăng ký chính) -->
+                <div class="field">
+                    <label for="email">Email (Tài khoản đăng nhập)</label>
+                    <div class="input-wrap">
+                        <span class="icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                            </svg>
+                        </span>
+                        <input type="email" id="email" name="email" placeholder="example@email.com" autocomplete="email" required />
+                    </div>
+                </div>
+
+                <!-- Mật khẩu -->
+                <div class="field">
+                    <label for="matKhau">Mật khẩu</label>
+                    <div class="input-wrap">
+                        <span class="icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                        </span>
+                        <input type="password" id="matKhau" name="matKhau" placeholder="Tối thiểu 6 ký tự" autocomplete="new-password" oninput="checkStrength(this.value)" required />
+                        <button type="button" class="toggle-pw" onclick="togglePassword(this)">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="strength-bar" id="strengthBar">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+
+                <!-- Nhập lại mật khẩu -->
+                <div class="field">
+                    <label for="nhapLaiMatKhau">Xác nhận mật khẩu</label>
+                    <div class="input-wrap">
+                        <span class="icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                        </span>
+                        <input type="password" id="nhapLaiMatKhau" name="nhapLaiMatKhau" placeholder="Nhập lại mật khẩu" autocomplete="new-password" required />
+                        <button type="button" class="toggle-pw" onclick="togglePassword(this)">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="terms-row">
+                    <input type="checkbox" id="dongYDieuKhoan" name="dongYDieuKhoan" required />
+                    <label for="dongYDieuKhoan">
+                        Tôi đồng ý với <a href="#">Điều khoản dịch vụ</a> và <a href="#">Chính sách bảo mật</a> của BookingTravel
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-primary">Tạo tài khoản</button>
+            </form>
+
+            <p class="form-footer">
+                Đã có tài khoản? <a asp-action="DangNhapTK" asp-controller="TaiKhoan">Đăng nhập</a>
+            </p>
+
+            <div class="links-row">
+                <a href="#">Điều khoản dịch vụ</a>
+                <a href="#">Chính sách bảo mật</a>
+                <a href="#">Hỗ trợ</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function togglePassword(btn) {
+    const input = btn.closest('.input-wrap').querySelector('input');
+    const isHidden = input.type === 'password';
+    input.type = isHidden ? 'text' : 'password';
+    btn.style.color = isHidden ? 'var(--blue)' : 'var(--gray-400)';
+}
+
+function checkStrength(val) {
+    const bar = document.getElementById('strengthBar');
+    let level = 0;
+    if (val.length >= 6) level = 1;
+    if (val.length >= 8) level = 2;
+    if (/[A-Z]/.test(val) && /[0-9]/.test(val)) level = 3;
+    if (level === 3 && /[^A-Za-z0-9]/.test(val)) level = 4;
+    bar.dataset.level = val.length ? level : '';
+}
+
+// Hàm tự động cập nhật ký tự đầu tiên của Tên làm ảnh đại diện dạng chữ
+function updateAvatarText(name) {
+    const preview = document.getElementById('avatarPreview');
+    if(name.trim() !== "") {
+        // Lấy chữ cái đầu tiên của từ cuối cùng (Tên chính)
+        const words = name.trim().split(" ");
+        const firstLetter = words[words.length - 1].charAt(0);
+        preview.innerText = firstLetter;
+    } else {
+        preview.innerText = "U";
+    }
+}
+</script>
+</body>
+</html>

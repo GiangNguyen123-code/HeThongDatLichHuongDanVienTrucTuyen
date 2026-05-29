@@ -1,0 +1,116 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFramework = net10.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.EntryPointFilePath = 
+build_property.RootNamespace = HeThongDatLich
+build_property.RootNamespace = HeThongDatLich
+build_property.ProjectDir = D:\C#\LyThuyet\HeThongDatLich\HeThongDatLich\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 10.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\C#\LyThuyet\HeThongDatLich\HeThongDatLich
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/Admin/MyProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTXlQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/Admin/QuanLyNguoiDung.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUXVhbkx5Tmd1b2lEdW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/Admin/ThongKe.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVGhvbmdLZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/Admin/TongQuanAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVG9uZ1F1YW5BZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/HDV/DanhGiaHDV.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSERWXERhbmhHaWFIRFYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/HDV/DanhSach.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSERWXERhbmhTYWNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/HDV/EditProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSERWXEVkaXRQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/HDV/LichLamHDV.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSERWXExpY2hMYW1IRFYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/HDV/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSERWXFByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/KhachHang/ChiTietHDV.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXENoaVRpZXRIRFYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/KhachHang/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/KhachHang/LichSu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXExpY2hTdS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/KhachHang/ThongTinCaNhan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXFRob25nVGluQ2FOaGFuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/Shared/_LayoutHDV.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRIRFYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/Shared/_LayoutKhachHang.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRLaGFjaEhhbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/TaiKhoan/DangKyTK.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpS2hvYW5cRGFuZ0t5VEsuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/TaiKhoan/DangNhapTK.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpS2hvYW5cRGFuZ05oYXBUSy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/LyThuyet/HeThongDatLich/HeThongDatLich/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

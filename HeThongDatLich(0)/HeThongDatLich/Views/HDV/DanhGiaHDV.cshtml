@@ -1,0 +1,186 @@
+﻿@model IEnumerable<HeThongDatLich.Models.DONDATLICH>
+@using HeThongDatLich.Extensions @{
+    Layout = "~/Views/Shared/_LayoutHDV.cshtml";
+    ViewData["Title"] = "Đánh giá của khách hàng";
+
+    // Dùng Razor tính toán nhanh thống kê để hiển thị lên Banner
+    var totalTrips = Model.Count();
+    var reviewedTrips = Model.Where(d => d.DanhGias.Any()).ToList();
+    var totalReviews = reviewedTrips.Count();
+    double avgRating = totalReviews > 0 ? reviewedTrips.Average(d => d.DanhGias.First().SoSao) : 0;
+}
+
+<style>
+    .review-dashboard {
+        padding: 10px 0;
+    }
+    
+    /* Banner Thống kê */
+    .stat-banner {
+        background: linear-gradient(135deg, #0f2b3d 0%, #1e4a6e 100%);
+        color: white;
+        border-radius: 16px;
+        padding: 25px 40px;
+        margin-bottom: 35px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        box-shadow: 0 10px 25px rgba(15,43,61,0.15);
+    }
+    .stat-item { text-align: center; }
+    .stat-value { font-size: 36px; font-weight: 700; margin-bottom: 5px; line-height: 1; }
+    .stat-label { font-size: 13px; color: #cbd5e1; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; }
+
+    /* Card Đánh giá */
+    .review-card {
+        background: white;
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        border: 1px solid #f0f2f8;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .review-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+        border-color: #e2e8f0;
+    }
+    
+    /* Header Card */
+    .customer-avatar {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #eff6ff;
+    }
+    .review-header {
+        display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 18px;
+    }
+    
+    /* Ngôi sao */
+    .star-rating i { color: #fbbf24; font-size: 15px; margin-right: 2px; }
+    .star-rating i.empty { color: #e2e8f0; }
+    
+    /* Nội dung Review */
+    .review-content {
+        background: #f8fafc;
+        border-left: 4px solid #3b82f6;
+        padding: 16px 20px 16px 45px;
+        border-radius: 0 12px 12px 0;
+        font-size: 15px;
+        color: #334155;
+        font-style: italic;
+        position: relative;
+        line-height: 1.6;
+    }
+    .review-content::before {
+        content: '\201C';
+        font-size: 60px;
+        color: #cbd5e1;
+        position: absolute;
+        top: 0px; left: 10px;
+        font-family: serif;
+        line-height: 1;
+        opacity: 0.5;
+    }
+    
+    /* Badge chưa có đánh giá */
+    .no-review-badge {
+        background: #f1f5f9;
+        color: #64748b;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+</style>
+
+<div class="review-dashboard">
+    
+    <div class="stat-banner">
+        <div class="stat-item">
+            <div class="stat-value">@totalTrips</div>
+            <div class="stat-label">Đã hoàn thành</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">@totalReviews</div>
+            <div class="stat-label">Lượt đánh giá</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">
+                @avgRating.ToString("F1") <i class="fas fa-star" style="font-size: 24px; color: #fbbf24;"></i>
+            </div>
+            <div class="stat-label">Điểm trung bình</div>
+        </div>
+    </div>
+
+    <h4 class="fw-bold mb-4" style="color: #0f172a; font-size: 20px;">Chi tiết phản hồi</h4>
+
+    @if (!Model.Any())
+    {
+        <div class="text-center py-5" style="background: white; border-radius: 16px; border: 1px dashed #cbd5e1;">
+            <i class="fa-regular fa-face-smile-wink mb-3" style="font-size: 48px; color: #94a3b8;"></i>
+            <h5 style="color: #475569;">Bạn chưa hoàn thành chuyến đi nào.</h5>
+            <p class="text-muted" style="font-size: 14px;">Hãy bắt đầu nhận tour để nhận được những đánh giá tuyệt vời từ khách hàng nhé!</p>
+        </div>
+    }
+    else
+    {
+        foreach (var don in Model)
+        {
+            var danhGia = don.DanhGias.FirstOrDefault();
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://ui-avatars.com/api/?name=@Uri.EscapeDataString(don.KhachHang?.HoTen ?? "K")&background=random" class="customer-avatar" alt="Avatar">
+                        <div>
+                            <h5 class="mb-1 fw-bold" style="color: #0f172a; font-size: 16px;">@don.KhachHang?.HoTen</h5>
+                            <div class="text-muted" style="font-size: 13px;">
+                                <i class="fa-regular fa-calendar-alt me-1"></i> @don.NgayDat.ToString("dd/MM/yyyy") &nbsp;|&nbsp;
+                                <i class="fa-solid fa-map-location-dot me-1"></i> @(don.GoiTour?.TenTour ?? "Thuê HDV tự do")
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <div>
+                        @if (danhGia != null)
+                        {
+                            <div class="star-rating d-flex align-items-center">
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    if (i <= danhGia.SoSao)
+                                    {
+                                        <i class="fas fa-star"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="fas fa-star empty"></i>
+                                    }
+                                }
+                                <span class="ms-2 fw-bold" style="color: #1e293b; font-size: 15px;">@danhGia.SoSao.ToString("0.0")</span>
+                            </div>
+                        }
+                        else
+                        {
+                            <span class="no-review-badge">
+                                <i class="fa-regular fa-clock"></i> Đang chờ đánh giá
+                            </span>
+                        }
+                    </div>
+                </div>
+
+                @if (danhGia != null && !string.IsNullOrEmpty(danhGia.NoiDung))
+                {
+                    <div class="review-content">
+                        <span style="position: relative; z-index: 1;">@danhGia.NoiDung</span>
+                    </div>
+                }
+            </div>
+        }
+    }
+</div>
